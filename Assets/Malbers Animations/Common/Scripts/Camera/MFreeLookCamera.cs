@@ -138,6 +138,7 @@ namespace MalbersAnimations
         void Start()
         {
             GetTargetGravity();
+            Cursor.lockState = CursorLockMode.Locked; // NATI
         }
 
         void GetTargetGravity()
