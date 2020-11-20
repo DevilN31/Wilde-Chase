@@ -7408,13 +7408,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe43750133b0f424e9aff96ebbb4979d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "*WeaponActions*\r\n\nNone = 0,\r\nDrawFromRight = -1,\r\nDrawFromLeft = -2,\r\nStoreToRight
-    = -3,\r\nStoreToLeft = -7,\r\nIdle = -4,\r\nAimRight = -5,\r\nAimLeft = -6,\r
-    \nReloadRight  = -8,\r\nReloadLeft = -9,\r\nHold = -10,       \nEquip = -100,\r\nUnequip
-    = -101,\n\nAtk_RSide_RHand_Forward = 1,\r\nAtk_RSide_RHand_Backward = 2,\r\n\r\nAtk_LSide_RHand_Forward
-    = 3,\r\nAtk_LSide_RHand_Backward = 4,\r\n\r\nAtk_RSide_LHand_Forward = 5,\r\nAtk_RSide_LHand_Backward
-    = 6,\r\n\r\nAtk_LSide_LHand_Forward = 7,\r\nAtk_LSide_LHand_Backward = 8,\nFire_Proyectile
-    = 9"
+  text: "*WeaponActions*\r\n\nNone = 0,\r\nDrawFromRight = -1,\r\nDrawFromLeft =
+    -2,\r\nStoreToRight = -3,\r\nStoreToLeft = -7,\r\nIdle = -4,\r\nAimRight = -5,\r\nAimLeft
+    = -6,\r \nReloadRight  = -8,\r\nReloadLeft = -9,\r\nHold = -10,       \nEquip
+    = -100,\r\nUnequip = -101,\n\nAtk_RSide_RHand_Forward = 1,\r\nAtk_RSide_RHand_Backward
+    = 2,\r\n\r\nAtk_LSide_RHand_Forward = 3,\r\nAtk_LSide_RHand_Backward = 4,\r\n\r\nAtk_RSide_LHand_Forward
+    = 5,\r\nAtk_RSide_LHand_Backward = 6,\r\n\r\nAtk_LSide_LHand_Forward = 7,\r\nAtk_LSide_LHand_Backward
+    = 8,\nFire_Proyectile = 9"
 --- !u!114 &114816704590591822
 MonoBehaviour:
   m_ObjectHideFlags: 1
