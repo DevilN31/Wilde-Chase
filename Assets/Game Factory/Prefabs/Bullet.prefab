@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8562440203845675875}
   - component: {fileID: 6190185724083220809}
   - component: {fileID: 1205099509877644121}
-  m_Layer: 0
+  - component: {fileID: 1261700920767150981}
+  m_Layer: 23
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +112,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1261700920767150981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738998042874615354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582f05938bcdbc740a263f94f992b6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  speed: 3
 --- !u!1 &7772409715933969776
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +137,7 @@ GameObject:
   - component: {fileID: 599179804805461674}
   - component: {fileID: 2085191483332925960}
   - component: {fileID: 4166133300997231772}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

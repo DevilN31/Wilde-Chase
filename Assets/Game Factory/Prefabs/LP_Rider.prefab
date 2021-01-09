@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 1029363459538979404}
   - component: {fileID: 1028529896319803100}
   - component: {fileID: 1078395152316800140}
-  - component: {fileID: 277740977}
   m_Layer: 20
   m_Name: LP_Rider
   m_TagString: Untagged
@@ -1078,28 +1077,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &277740977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141030806235317746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d9a63f3f1d7bf4d9cdacb1167762a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletCount: 6
-  canShoot: 0
-  reload: 0
-  attackSpeed: 2
-  counter: 0
-  pistol: {fileID: 4952729880427855624}
-  hand: {fileID: 1890254935}
-  target: {fileID: 0}
-  bulletPrefab: {fileID: 2738998042874615354, guid: 5555de798646c3445a0927f6791bb5db,
-    type: 3}
 --- !u!1 &1141400298148221372
 GameObject:
   m_ObjectHideFlags: 0
@@ -4070,12 +4047,6 @@ PrefabInstance:
 --- !u!4 &4951173332598967450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010563517732, guid: 0ba5880b02e1ab24b8ba198a97da9322,
-    type: 3}
-  m_PrefabInstance: {fileID: 4951756258300309950}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4952729880427855624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000010943811254, guid: 0ba5880b02e1ab24b8ba198a97da9322,
     type: 3}
   m_PrefabInstance: {fileID: 4951756258300309950}
   m_PrefabAsset: {fileID: 0}

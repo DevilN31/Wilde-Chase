@@ -6,7 +6,7 @@ public class EnemyAnimationController : MonoBehaviour
 {
     [SerializeField] int bulletCount = 6;
     [SerializeField] bool canShoot = false;
-    [SerializeField] bool reload;
+    public bool reload = false;
     [SerializeField] float attackSpeed = 1f;
     [SerializeField] float counter;
     [SerializeField] GameObject pistol;
@@ -15,6 +15,8 @@ public class EnemyAnimationController : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     Animator anim;
     CapsuleCollider col;
+    Vector3 directionToTarget;
+    float lastShot;
 
 
     void Start()
@@ -22,6 +24,7 @@ public class EnemyAnimationController : MonoBehaviour
         if(target == null)
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
+        lastShot = Time.time;
         col = GetComponent<CapsuleCollider>();
         anim = GetComponent<Animator>();
         anim.SetInteger("BulletCount", bulletCount);
@@ -39,42 +42,79 @@ public class EnemyAnimationController : MonoBehaviour
             Debug.Log("Enemy: Collider enabled!");
         }
 
-        if(!canShoot && !reload)
-        counter += Time.deltaTime;
+        directionToTarget = target.position - transform.position;
+        Debug.DrawRay(pistol.transform.position, (pistol.transform.up + directionToTarget) * 50, Color.red);
 
-        if(counter >= attackSpeed)
+        AttemptShoot(attackSpeed);
+
+        /*
+        if((Time.time - lastShot) > attackSpeed && !reload)
         {
             if (bulletCount > 0)
             {
-                canShoot = true;
-                counter = 0;
+                anim.SetTrigger("Shoot");
+                lastShot = Time.time;
             }
             else
                 reload = true;
         }
 
-        if (reload && !canShoot)
+        if (reload)
         {
-            reload = false;
-            StartCoroutine(Reload());
+            // reload = false;
+            // StartCoroutine(Reload());
+            canShoot = false;
+            anim.SetTrigger("Reload");
         }
+        */  
         
-        Vector3 directionToTarget = target.position - transform.position;
-        Debug.DrawRay(pistol.transform.position, (pistol.transform.up + directionToTarget) * 50, Color.red);
-
-        if (canShoot && !reload)
+        /*
+        if (canShoot)
         {
             anim.SetTrigger("Shoot");
-            GameObject bullet = Instantiate(bulletPrefab, pistol.transform.position, bulletPrefab.transform.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = directionToTarget;
-            Destroy(bullet, 2);
-            bulletCount--;
-            anim.SetInteger("BulletCount", bulletCount);
-            canShoot = false;
         }
+        */
        
     }
 
+    void AttemptShoot(float shootSpeed)
+    {
+        if (bulletCount <= 0 && !reload)
+        {
+            reload = true;
+            anim.SetTrigger("Reload");
+            return;
+        }
+
+        if ((Time.time - lastShot) < shootSpeed || reload)
+        {
+            return;
+        }
+
+        lastShot = Time.time;
+        anim.SetTrigger("Shoot");
+    }
+
+    public void SetReloadFalse()
+    {
+        lastShot = Time.time;
+        bulletCount = 6;
+        //canShoot = true;
+        reload = false;
+    }
+
+    public void Shoot()
+    {
+        bulletCount--;
+        Debug.Log("Enemy is shooting");
+        GameObject bullet = Instantiate(bulletPrefab, pistol.transform.position, bulletPrefab.transform.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = directionToTarget * 3;
+        Destroy(bullet, 2);
+        // anim.SetInteger("BulletCount", bulletCount);
+        canShoot = false;
+    }
+
+    /*
     IEnumerator Reload()
     {
         Debug.Log("Reload");
@@ -89,4 +129,5 @@ public class EnemyAnimationController : MonoBehaviour
 
 
     }
+    */
 }

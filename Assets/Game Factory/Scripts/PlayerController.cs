@@ -7,12 +7,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Transform playerWagonPosition;
     [SerializeField] Transform hand;
+    [Header("Stats")]
+    [SerializeField] float maxHealth = 100;
+    [SerializeField] float currentHealth;
     [SerializeField] float throwForce = 10f;
     [SerializeField] bool isAiming;
+    [SerializeField] bool isCrouching;
+    [Header("Throwable")]
     [SerializeField] List<ThrowingProp> throwableProps;
     [SerializeField] List<ThrowingProp> throwablePool;
 
     Animator anim;
+    CapsuleCollider col;
 
     float rotX = 0;
 
@@ -24,12 +30,26 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        col = GetComponent<CapsuleCollider>();
+        isCrouching = true;
         isAiming = false;
+        currentHealth = maxHealth;
         InstantiateProps();
     }
 
     void Update()
     {
+        if(currentHealth <= 0)
+        {
+            Debug.Log("Player is dead!");
+            Destroy(this.gameObject);
+        }
+
+        if (isCrouching)
+            col.height = 0.7f;
+        else
+            col.height = 1.6f;
+
         if (playerWagonPosition != null) // ONLY FOR TESTING!!!
         {
             transform.parent = playerWagonPosition;
@@ -48,8 +68,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            Time.timeScale = 0.7f;
+            Time.timeScale = 0.5f;
             isAiming = true;
+            anim.SetBool("isAiming", isAiming);
+            isCrouching = false;
             rotX += Input.GetAxis("Mouse X") * 5f;
             rotX = Mathf.Clamp(rotX, -45f, 45f);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotX, transform.localEulerAngles.z);
@@ -57,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Time.timeScale = 1;
+            anim.SetBool("isAiming", false);
             anim.SetTrigger("Throw");
         }
     }
@@ -86,6 +109,7 @@ public class PlayerController : MonoBehaviour
         }
 
         isAiming = false;
+        isCrouching = true;
     }
 
     IEnumerator ThrowStuffSequens()
@@ -105,5 +129,10 @@ public class PlayerController : MonoBehaviour
             throwablePool.Add(temp);
             temp.gameObject.SetActive(false);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
     }
 }
