@@ -14,10 +14,15 @@ public class EnemyAnimationController : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] GameObject bulletPrefab;
     Animator anim;
+    CapsuleCollider col;
 
 
     void Start()
     {
+        if(target == null)
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        col = GetComponent<CapsuleCollider>();
         anim = GetComponent<Animator>();
         anim.SetInteger("BulletCount", bulletCount);
         pistol.transform.parent = hand;
@@ -28,6 +33,11 @@ public class EnemyAnimationController : MonoBehaviour
 
     void Update()
     {
+        if (!col.enabled)
+        {
+            col.enabled = true;
+            Debug.Log("Enemy: Collider enabled!");
+        }
 
         if(!canShoot && !reload)
         counter += Time.deltaTime;

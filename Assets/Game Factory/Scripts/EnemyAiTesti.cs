@@ -11,12 +11,12 @@ public class EnemyAiTesti : MonoBehaviour
 
     public GameObject aimAtTarget;
     [SerializeField] bool isGunEquipped;
-    [SerializeField] Camera aiCamera;
+   // [SerializeField] Camera aiCamera;
     [SerializeField] LayerMask layerMask;
 
     RiderCombat riderCombat;
-    Aim aim;
-    MInventory inventory;
+   // Aim aim;
+   // MInventory inventory;
     MAnimalAIControl animalAIControl;
 
     // Start is called before the first frame update
@@ -24,10 +24,10 @@ public class EnemyAiTesti : MonoBehaviour
     {
         aimAtTarget = GameObject.FindGameObjectWithTag("Player");
         riderCombat = GetComponentInChildren<RiderCombat>();
-        aim = GetComponentInChildren<Aim>();
+       // aim = GetComponentInChildren<Aim>();
         animalAIControl = GetComponentInChildren<MAnimalAIControl>();
-        aim.MainCamera = aiCamera;
-        inventory = GetComponentInChildren<MInventory>();
+       // aim.MainCamera = aiCamera;
+       // inventory = GetComponentInChildren<MInventory>();
         isGunEquipped = false;    
     }
 
@@ -35,7 +35,7 @@ public class EnemyAiTesti : MonoBehaviour
     void Update()
     {
 
-        aiCamera.transform.forward = aimAtTarget.transform.forward;
+       // aiCamera.transform.forward = aimAtTarget.transform.forward;
 
         if(Vector3.Distance(transform.position,aimAtTarget.transform.position) < 20f)
         {
@@ -43,16 +43,17 @@ public class EnemyAiTesti : MonoBehaviour
             riderCombat.AimMode();
             if (!riderCombat.Aim)
                 riderCombat.SetAim(true);
-            riderCombat.Aimer.AimOrigin = aimAtTarget.transform;
-            aim.AimOrigin = aimAtTarget.transform;
+           // riderCombat.Aimer.AimOrigin = aimAtTarget.transform;
+          //  aim.AimOrigin = aimAtTarget.transform;
            
-            
+            /*
             if (!isGunEquipped)
             {
                 inventory.EquipItem(2);
                 riderCombat.Change_Weapon_Holder_Right();
                 isGunEquipped = true;
             }
+            */
 
 
             // riderCombat.MainAttack();
