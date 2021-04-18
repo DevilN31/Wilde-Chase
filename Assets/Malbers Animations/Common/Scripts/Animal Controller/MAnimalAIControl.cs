@@ -301,7 +301,7 @@ namespace MalbersAnimations.Controller
         public virtual void SetTarget(Transform target, bool Move)
         {
             IsWaiting = false;
-            animal.Mode_Interrupt();             //In Case it was making any Mode;
+            //animal.Mode_Interrupt();             //In Case it was making any Mode;
             this.target = target;
 
             IsAITarget = null; //Reset the AI Target

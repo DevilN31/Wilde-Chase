@@ -45,7 +45,7 @@ namespace MalbersAnimations.Controller
 
         public void TargetArrived(GameObject target)
         {
-            OnTargetArrived.Invoke(target);
+            OnTargetArrived.Invoke(target);    
         }
 
         public Transform NextTarget()

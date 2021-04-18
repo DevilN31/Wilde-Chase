@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166881885}
-  m_LocalRotation: {x: 0.08135422, y: -0, z: -0, w: 0.9966853}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 2.87, z: -2.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7047580764380811443}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 9.333, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!20 &166881887
 Camera:
   m_ObjectHideFlags: 0
@@ -57,7 +57,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -3009,9 +3009,10 @@ GameObject:
   - component: {fileID: 6938293140535230183}
   - component: {fileID: 6987594347134581943}
   - component: {fileID: 4774191818669156072}
+  - component: {fileID: 487588561010037386}
   m_Layer: 20
   m_Name: LP_Rider_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3943,10 +3944,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c77e0452a69abd4e9812a406ff1c2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 166881887}
   playerWagonPosition: {fileID: 0}
   hand: {fileID: 6421639631975779306}
-  throwForce: 15
+  hpSlider: {fileID: 0}
+  rotationSpeed: 2
+  senseivity: 1
+  invertPitch: 1
+  slingshotControl: 1
+  maxHealth: 100
+  currentHealth: 0
+  forceApplied: 0
   isAiming: 0
+  isCrouching: 0
   throwableProps:
   - {fileID: 1238665070743390211, guid: e0a9988fe1275eb41b3c7d2b6512bc6e, type: 3}
   - {fileID: 8260034866787806651, guid: 5ceb6e65e5b4a4e4cb35fbd44e1a2ae8, type: 3}
@@ -3963,6 +3973,43 @@ MonoBehaviour:
   - {fileID: 7119631302872284675, guid: dec6f697bf9f3174f8e9d705f69ece31, type: 3}
   - {fileID: 5347675227833209998, guid: e27da119c46cb2e489e13dbb57f85a64, type: 3}
   throwablePool: []
+--- !u!114 &487588561010037386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050974404713145801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a34b75710a2dbe4296dbe73d09dbec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accuracy: 0.99
+  iterationLimit: 50
+  predictionType: 3
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  checkForCollision: 1
+  debugLineMode: 2
+  drawDebugOnStart: 0
+  drawDebugOnUpdate: 0
+  drawDebugOnPrediction: 1
+  debugLineDuration: 4
+  debugLineUpdateRate: 1
+  reuseLine: 0
+  lineSortingLayerName: 
+  lineSortingOrder: 0
+  lineWidth: 0.05
+  lineStartColor: {r: 1, g: 0, b: 0, a: 1}
+  lineEndColor: {r: 1, g: 1, b: 1, a: 1}
+  lineShader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+  lineTexture: {fileID: 0}
+  textureTilingMult: 1
+  predictionPoints: []
+  debugLine: {fileID: 0}
+  lineDistance: 0
 --- !u!1 &7051031993733351335
 GameObject:
   m_ObjectHideFlags: 0

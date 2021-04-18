@@ -111,7 +111,7 @@ namespace MalbersAnimations.HAP
 
                 try
                 {
-                    Anim.SetBool(Hash.Mount, Mounted);                           //Update Mount Parameter on the Animator
+                    //Anim.SetBool(Hash.Mount, Mounted);                           //Update Mount Parameter on the Animator
                 }
                 catch { }
             }
@@ -307,7 +307,7 @@ namespace MalbersAnimations.HAP
                 if (mt.AutoMount) mt.WasAutomounted = true;                 //Set to all the Auto Mounted Triggers that it dismounting
 
 
-            Anim.SetInteger(Hash.MountSide, MountTrigger.DismountID);           //Update MountSide Parameter In the Animator
+           // Anim.SetInteger(Hash.MountSide, MountTrigger.DismountID);           //Update MountSide Parameter In the Animator
 
             if (Montura.InstantMount)                                       //Use for Instant mount
             {
@@ -450,7 +450,7 @@ namespace MalbersAnimations.HAP
 
             OnStartMounting.Invoke();                                                   //Invoke UnityEvent for  Start Mounting
 
-            Anim?.SetLayerWeight(MountLayerIndex, 1);                                   //Enable Mount Layer set the weight to 1
+           // Anim?.SetLayerWeight(MountLayerIndex, 1);                                   //Enable Mount Layer set the weight to 1
             
             if (!Anim) End_Mounting();                                                  //If is there no Animator  execute the End_Dismounting part
 
@@ -480,9 +480,9 @@ namespace MalbersAnimations.HAP
             {
                 Anim.updateMode = Montura.Anim.updateMode;                       //Use the Same UpdateMode from the Animal
                                                                                  // Anim.updateMode = AnimatorUpdateMode.Normal;                       //Use the Same UpdateMode from the Animal
-                Anim.SetBool(Montura.Animal.hash_Grounded, Montura.Animal.Grounded);
-                Anim.SetInteger(Montura.Animal.hash_State, Montura.Animal.ActiveStateID);
-                Anim.SetInteger(Montura.Animal.hash_Mode, Montura.Animal.ModeAbility);
+               // Anim.SetBool(Montura.Animal.hash_Grounded, Montura.Animal.Grounded);
+                //Anim.SetInteger(Montura.Animal.hash_State, Montura.Animal.ActiveStateID);
+               // Anim.SetInteger(Montura.Animal.hash_Mode, Montura.Animal.ModeAbility);
 
                 Montura.Animal.OnGrounded.AddListener(AnimalGrounded);
                 Montura.Animal.OnStateChange.AddListener(AnimalState);
@@ -491,7 +491,7 @@ namespace MalbersAnimations.HAP
 
                 Montura.Animal.OnStanceChange.AddListener(AnimalStance);
 
-                Anim.SetInteger(Montura.Animal.hash_Stance, Montura.ID);
+               // Anim.SetInteger(Montura.Animal.hash_Stance, Montura.ID);
             }
             OnEndMounting.Invoke();
 
@@ -645,14 +645,14 @@ namespace MalbersAnimations.HAP
 
             if (Montura.Animal.ActiveStateID == StateEnum.Locomotion)                                               //Search for syncron the locomotion state on the animal
             {
-                RiderNormalizedTime = Anim.GetCurrentAnimatorStateInfo(MountLayerIndex).normalizedTime;            //Get the normalized time from the Rider
+                //RiderNormalizedTime = Anim.GetCurrentAnimatorStateInfo(MountLayerIndex).normalizedTime;            //Get the normalized time from the Rider
                 HorseNormalizedTime = Montura.Animal.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime;           //Get the normalized time from the Horse
 
                 syncronize = true;
 
                 if (Mathf.Abs(RiderNormalizedTime - HorseNormalizedTime) > 0.1f && Time.time - LastSyncTime > 1f)   //Checking if the animal and the rider are unsync by 0.2
                 {
-                    Anim.CrossFade(AnimTag.Locomotion, 0.2f, MountLayerIndex, HorseNormalizedTime);                 //Normalized with blend
+                    //Anim.CrossFade(AnimTag.Locomotion, 0.2f, MountLayerIndex, HorseNormalizedTime);                 //Normalized with blend
                     LastSyncTime = Time.time;
                 }
             }
@@ -773,33 +773,33 @@ namespace MalbersAnimations.HAP
         {
             MAnimal animal = Montura.Animal;
 
-            Anim.SetFloat(animal.hash_Vertical, animal.VerticalSmooth);
-            Anim.SetFloat(animal.hash_Horizontal, animal.HorizontalSmooth);
-            Anim.SetFloat(animal.hash_Slope, animal.SlopeNormalized);
+            //Anim.SetFloat(animal.hash_Vertical, animal.VerticalSmooth);
+           // Anim.SetFloat(animal.hash_Horizontal, animal.HorizontalSmooth);
+           // Anim.SetFloat(animal.hash_Slope, animal.SlopeNormalized);
 
-            Anim.SetBool(animal.hash_Grounded, animal.Grounded);
+            //Anim.SetBool(animal.hash_Grounded, animal.Grounded);
             // Anim.SetInteger(animal.hash_State, animal.ActiveStateID);
             // Anim.SetInteger(animal.hash_Mode, animal.ModeID);
 
 
-            Anim.SetInteger(animal.hash_IDInt, animal.IntID);
-            Anim.SetFloat(animal.hash_IDFloat, animal.IDFloat);
+            //Anim.SetInteger(animal.hash_IDInt, animal.IntID);
+            //Anim.SetFloat(animal.hash_IDFloat, animal.IDFloat);
 
             if (!Montura.UseSpeedModifiers) SpeedMultiplier = animal.SpeedMultiplier; //In case the Mount is not using Speed Modifiers
 
             SpeedMultiplier = Mathf.MoveTowards(SpeedMultiplier, TargetSpeedMultiplier, Time.deltaTime * 5f);
-            Anim.SetFloat(animal.hash_SpeedMultiplier, SpeedMultiplier);
+            //Anim.SetFloat(animal.hash_SpeedMultiplier, SpeedMultiplier);
         }
 
         void AnimalGrounded(bool grounded)
         {
             if (Montura == null) return;
-            Anim?.SetBool(Montura.Animal.hash_Grounded, grounded);
+           // Anim?.SetBool(Montura.Animal.hash_Grounded, grounded);
         }
         void AnimalState(int State)
         {
             if (Montura == null) return;
-            Anim?.SetInteger(Montura.Animal.hash_State, State);
+            //Anim?.SetInteger(Montura.Animal.hash_State, State);
         }
         void AnimalStance(int stance)
         {

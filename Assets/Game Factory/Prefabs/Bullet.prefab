@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6190185724083220809}
   - component: {fileID: 1205099509877644121}
   - component: {fileID: 1261700920767150981}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582f05938bcdbc740a263f94f992b6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  speed: 3
+  damage: 40
+  speed: 2
 --- !u!1 &7772409715933969776
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 599179804805461674}
   - component: {fileID: 2085191483332925960}
   - component: {fileID: 4166133300997231772}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1429,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0, b: 0, a: 1}
+        key0: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 0.5882353}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}

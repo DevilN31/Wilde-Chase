@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8957257852686037214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8957257852686037212}
+  - component: {fileID: 8957257852686037203}
+  - component: {fileID: 8957257852686037202}
+  - component: {fileID: 7110553730648937613}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8957257852686037212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957257852686037214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8957257852686037203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957257852686037214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305a98bf37988314e8de33aea1879209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesInLevel: []
+  player: {fileID: 0}
+  playerPrefab: {fileID: 2211960601290401613, guid: db94f6a132d5e5941a3141c5310908c4,
+    type: 3}
+  isPlayerReachedEnd: 0
+  isFirstRun: 1
+  levelName: 'Level '
+  currentLevelIndex: 1
+  currentLevelName: 
+  TestAverageAngle: 0
+  TempAngle: 0
+--- !u!114 &8957257852686037202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957257852686037214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2128c9129331ae240bc8e2c916410cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7110553730648937613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957257852686037214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dca442c5874104448dcb0b3b0815ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuPanel: {fileID: 0}
+  settingsPanel: {fileID: 0}
+  disableScripts: []
+  touchFieldPanel: {fileID: 0}
+  levelNameText: {fileID: 0}
+  versionText: {fileID: 0}
+  slingshotToggle: {fileID: 0}
+  maxSensetivity: 3
+  minSensetivity: 0.5
+  sensetivitySlider: {fileID: 0}
+  sensetivityText: {fileID: 0}
+  fadeImage: {fileID: 0}
+  fadeEffectDuration: 1
+  jumpInterval: 5
+  isResetLevel: 0
