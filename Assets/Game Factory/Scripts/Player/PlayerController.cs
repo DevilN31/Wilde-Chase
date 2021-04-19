@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         InstantiateProps();
         SetClosestWaypoint();
 
-        if (DataManager.instance.GetPlayerPrefsBool("SlingshotControl") != -1)
+        if (DataManager.instance.GetPlayerPrefsBool("SlingshotControl") != -1) // Updates movement control type
         {
             if (DataManager.instance.GetPlayerPrefsBool("SlingshotControl") == 1)
                 slingshotControl = true;
@@ -101,14 +101,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
       
-        if (currentHealth <= 0)
+        if (currentHealth <= 0) 
         {
             Debug.Log("Player is dead!");
             if (!UiManager.instance.MenuPanel.activeSelf)
                 UiManager.instance.ShowMenu();
         }
 
-        if (isCrouching )//&& !GameManager.instance.IsPlayerReachedEnd)
+        if (isCrouching ) // Checks if player is crouching -> updates player colider height
         {
             col.height = 0.7f;
         }
@@ -125,15 +125,6 @@ public class PlayerController : MonoBehaviour
             transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, transform.parent.eulerAngles, 0.1f);          
         }
 
-        if (Input.GetKeyDown(KeyCode.W)) // FOR TESTING
-        {
-            StartCoroutine(ThrowStuffSequens());
-        }
-        if (Input.GetKeyDown(KeyCode.Q)) // FOR TESTING
-        {
-            StartCoroutine(PlayerEndDeath());
-        }
-
     }
 
     private void FixedUpdate()
@@ -141,17 +132,16 @@ public class PlayerController : MonoBehaviour
         
         if (UiManager.instance.TouchField != null)
         {
-            if (UiManager.instance.TouchField.Pressed)
+            if (UiManager.instance.TouchField.Pressed) // Checkes if player touched the screen -> starts rotation control
             {
                 isCrouching = false;
                 dragDir = UiManager.instance.TouchField.TouchDir;
-                //pitch += dragDir.y * rotationSpeed * invertPitch * Time.deltaTime;
                 yaw += dragDir.x * rotationSpeed * Time.fixedDeltaTime;
                 yaw = Mathf.Clamp(yaw, -45, 45);
 
                 forceApplied = (int)(UiManager.instance.TouchField.TouchDist * Time.fixedDeltaTime);
 
-                Time.timeScale = 0.5f;
+                Time.timeScale = 0.5f; // Slows time while aiming
                 anim.speed = 2f;
                 isAiming = true;
                 anim.SetBool("isAiming", true);
@@ -167,7 +157,7 @@ public class PlayerController : MonoBehaviour
                 forceApllied = transform.forward * forceApplied + transform.up * 2;
 
             }
-            else if (isAiming && !UiManager.instance.TouchField.Pressed)
+            else if (isAiming && !UiManager.instance.TouchField.Pressed) // resets variables if not aiming 
             {
                 Time.timeScale = 1;
                 anim.speed = 1f;
@@ -192,19 +182,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-        public void ThrowProps()
+        public void ThrowProps() // Player attack (called from animation)
     {
         //int randomProp = SelectPropIndex();
         //throwablePool[randomProp].gameObject.SetActive(true);
         //throwablePool[randomProp].transform.position = hand.position;
         //throwablePool[randomProp].transform.rotation = transform.rotation;
         //throwablePool[randomProp].ThrowMe(forceApllied);
-        throwablePool[selectedProp].ThrowMe(forceApllied); // TEST
+        throwablePool[selectedProp].ThrowMe(forceApllied);
         selectedProp = -1;
         isCrouching = true;
     }
 
-    int SelectPropIndex()
+    int SelectPropIndex() // selects the next prop from the prop list
     {
         selectedProp = Random.Range(0, throwablePool.Count);
 
@@ -216,7 +206,7 @@ public class PlayerController : MonoBehaviour
         return selectedProp;
     }
 
-    public void ShowSelectedProp()
+    public void ShowSelectedProp() // shows the selected prop in-game
     {
         if (selectedProp == -1)
         {
@@ -228,7 +218,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    IEnumerator ThrowStuffSequens()
+    IEnumerator ThrowStuffSequens() // was used to test props, no longer in use.
     {
         for(int i = 0; i < 25; i++)
         {
@@ -239,7 +229,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void InstantiateProps()
+    void InstantiateProps() // Instantiates all the props from the throwableProps list
     {
         foreach(ThrowingProp t in throwableProps)
         {
@@ -275,7 +265,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Player Controller: Slingshot change {slingshotControl}");
     }
 
-    public void SetClosestWaypoint()
+    public void SetClosestWaypoint() // Sets target point for AnimalAi script 
     {
         RaycastHit hit;
         Debug.DrawRay(playerWagonPosition.position, -playerWagonPosition.forward * sphereCastRadius, Color.magenta, 10f);
@@ -318,7 +308,7 @@ public class PlayerController : MonoBehaviour
         UiManager.instance.ShowMenu();
     }
 
-    void FindAndDisableRagdollParts()
+    void FindAndDisableRagdollParts() // finds all Ragdoll parts in player
     {
         Collider[] colliders = GetComponentsInChildren<Collider>();
         foreach (Collider col in colliders)

@@ -7,13 +7,6 @@ public class CharacterSwitch : MonoBehaviour
     [SerializeField] List<GameObject> characters;
     [SerializeField] int currentCharacter = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
 

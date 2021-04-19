@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
                 isFirstRun = false;
         }
 
-        if (isFirstRun)
+        if (isFirstRun) // Reset PleyerPrefs on first run
         {
             
             DataManager.instance.ResetPlayerPrefs();
@@ -90,12 +90,12 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (enemiesInLevel.Count <= 0)
+        if (enemiesInLevel.Count <= 0) // Chack if all enemies are dead -> continue to next level
         {
             UiManager.instance.StartFadeIn();
         }
 
-        if(enemiesInLevel.Count > 0)
+        if(enemiesInLevel.Count > 0) // Used for "blend" variable in EnemyAnimationController
         {
             TempAngle = 0;
             foreach(GameObject enemy in enemiesInLevel)
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayerReachedEnd()
+    public void PlayerReachedEnd() // Called when Player reaches the end of the path
     {
         Debug.Log("PLAYER REACHED END");
         isPlayerReachedEnd = true;
@@ -117,14 +117,14 @@ public class GameManager : MonoBehaviour
         PlayerController.StartCoroutine("PlayerEndDeath");
     }
 
-    public void ResetGameManager(Scene scene)
+    public void ResetGameManager(Scene scene) // Reset Game Manager variables.
     {
         isPlayerReachedEnd = false;
         enemiesInLevel.Clear();
         UiManager.instance.DisabledScripts.Clear();
     }
 
-    public string NextLevel()
+    public string NextLevel() // Get Next Level scene name
     {
         if (currentLevelIndex < SceneManager.sceneCountInBuildSettings)
             currentLevelIndex++;

@@ -69,7 +69,7 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)) // For PC tests
         {
             ShowMenu();
         }
@@ -77,7 +77,7 @@ public class UiManager : MonoBehaviour
         sensetivityText.text = sensetivitySlider.value.ToString();
     }
 
-    void UpdateReferences(Scene scene,LoadSceneMode mode)
+    void UpdateReferences(Scene scene,LoadSceneMode mode) // Find all references in scene after scene loaded
     {
         
         AddListenersToMenuButtons();
@@ -160,12 +160,12 @@ public class UiManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void AddSelfToDisabledList(MonoBehaviour script)
+    public void AddSelfToDisabledList(MonoBehaviour script) // Used for other scripts to add them to disableScripts list
     {
         disableScripts.Add(script);
     }
 
-    void DisableScripts(bool isEnabled)
+    void DisableScripts(bool isEnabled) // disables/enables all the scripts in disableScripts list
     {
         foreach(MonoBehaviour script in disableScripts)
         {
@@ -173,7 +173,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    void OnSensetivitySliderValueChange()
+    void OnSensetivitySliderValueChange() // updates sensetivity in player
     {
         if (GameManager.instance.PlayerController != null)
         {
@@ -185,7 +185,7 @@ public class UiManager : MonoBehaviour
            
     }
 
-    void OnSlingshotToggleValueChanged()
+    void OnSlingshotToggleValueChanged() // updates control type 
     {
         if (GameManager.instance.PlayerController != null)
         {
@@ -197,17 +197,17 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public void StartFadeOut()
+    public void StartFadeOut() // usued to call FadeOut from other scripts
     {
         StopAllCoroutines();
         StartCoroutine(FadeOut());
     }
-    public void StartFadeIn()
+    public void StartFadeIn() // usued to call FadeIn from other scripts
     {
         StartCoroutine(FadeIn());
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOut() 
     {
         Color C = fadeImage.color;
         float Timer = 0;

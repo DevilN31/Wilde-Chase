@@ -6,11 +6,6 @@ public class EndPoint : MonoBehaviour
 {
     Transform playerTransform;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if(playerTransform == null)
