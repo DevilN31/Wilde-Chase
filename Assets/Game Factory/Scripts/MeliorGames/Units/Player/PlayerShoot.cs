@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Game_Factory.Scripts.MeliorGames.Units.Player
 {
@@ -10,12 +11,14 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public Vector3 TargetPosition;
 
     public GameObject Projectile;
+    
+    public List<GameObject> Projectiles = new List<GameObject>();
 
     public float AngleInDegrees;
 
     private float speed;
 
-    private float g = Physics.gravity.y;
+    private readonly float gravity = Physics.gravity.y;
   
     public float Power = 100;
 
@@ -39,8 +42,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private void Shot(float v)
     {
-      GameObject newBullet = Instantiate(Projectile, SpawnTransform.position, Quaternion.identity);
-      //newBullet.GetComponent<Rigidbody>().velocity = SpawnTransform.forward * v;
+      GameObject newBullet = Instantiate(PickProjectile(), SpawnTransform.position, Quaternion.identity);
       newBullet.GetComponent<Rigidbody>().AddForce(SpawnTransform.forward * v, ForceMode.VelocityChange);
     }
 
@@ -56,7 +58,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
       float angleInRadians = AngleInDegrees * Mathf.PI / 180;
 
-      float v2 = (g * x * x) / (2 * (y - Mathf.Tan(angleInRadians) * x) * Mathf.Pow(Mathf.Cos(angleInRadians), 2));
+      float v2 = (gravity * x * x) / (2 * (y - Mathf.Tan(angleInRadians) * x) * Mathf.Pow(Mathf.Cos(angleInRadians), 2));
       speed = Mathf.Sqrt(Mathf.Abs(v2));
 
       TrajectoryRenderer.ShowTrajectory(transform.position, SpawnTransform.forward * speed);
@@ -75,6 +77,13 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       }
 
       return Vector3.zero;
+    }
+
+    private GameObject PickProjectile()
+    {
+      int projectileIndex = Random.Range(0, Projectiles.Count);
+
+      return Projectiles[projectileIndex];
     }
   }
 }
