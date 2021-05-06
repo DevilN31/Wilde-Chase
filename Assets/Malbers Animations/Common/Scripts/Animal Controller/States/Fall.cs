@@ -311,11 +311,11 @@ namespace MalbersAnimations.Controller
 
 #if UNITY_EDITOR
 
-        public override void DebugState()
+        /*public override void DebugState()
         {
             Gizmos.color = Color.magenta;
             Gizmos.DrawWireSphere(animal.Main_Pivot_Point, animal.RayCastRadius);
-        }
+        }*/
 
         /// <summary>This is Executed when the Asset is created for the first time </summary>
         void Reset()

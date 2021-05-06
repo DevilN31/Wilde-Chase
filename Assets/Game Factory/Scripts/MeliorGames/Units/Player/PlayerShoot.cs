@@ -1,40 +1,43 @@
 ﻿using System.Collections.Generic;
+using Game_Factory.Scripts.MeliorGames.Projectiles;
 using UnityEngine;
 
 namespace Game_Factory.Scripts.MeliorGames.Units.Player
 {
   public class PlayerShoot : MonoBehaviour
   {
+    public PlayerController PlayerController;
+    
     public TrajectoryRenderer TrajectoryRenderer;
+    public Camera MainCamera;
 
     public Transform SpawnTransform;
     public Vector3 TargetPosition;
 
     public GameObject Projectile;
     
-    public List<GameObject> Projectiles = new List<GameObject>();
+    public List<Projectile> Projectiles = new List<Projectile>();
 
     public float AngleInDegrees;
 
     private float speed;
 
     private readonly float gravity = Physics.gravity.y;
-  
-    public float Power = 100;
-
-
+    
     private void Update()
     {
       if (Input.GetMouseButton(0))
       {
         SpawnTransform.localEulerAngles = new Vector3(-AngleInDegrees, 0f, 0f);
         TargetPosition = PickTarget();
+        Time.timeScale = 0.35f;
     
         CalculateVelocity();
       }
     
       if (Input.GetMouseButtonUp(0))
       {
+        Time.timeScale = 1f;
         TrajectoryRenderer.HideTrajectory();
         Shot(speed);
       }
@@ -42,8 +45,10 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private void Shot(float v)
     {
-      GameObject newBullet = Instantiate(PickProjectile(), SpawnTransform.position, Quaternion.identity);
-      newBullet.GetComponent<Rigidbody>().AddForce(SpawnTransform.forward * v, ForceMode.VelocityChange);
+      Projectile newBullet = Instantiate(PickProjectile(), SpawnTransform.position, Quaternion.identity);
+      newBullet.Thrown = true;
+      newBullet.GetComponent<Rigidbody>().velocity = SpawnTransform.forward * v; //AddForce(SpawnTransform.forward * v, ForceMode.VelocityChange);
+      //PlayerController.ThrowProps(SpawnTransform.forward * v, SpawnTransform.position);
     }
 
     private void CalculateVelocity()
@@ -67,7 +72,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     private Vector3 PickTarget()
     {
       var groundPlane = new Plane(Vector3.up, Vector3.zero);
-      Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+      Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
 
       if (groundPlane.Raycast(ray, out float position))
       {
@@ -79,7 +84,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       return Vector3.zero;
     }
 
-    private GameObject PickProjectile()
+    private Projectile PickProjectile()
     {
       int projectileIndex = Random.Range(0, Projectiles.Count);
 
