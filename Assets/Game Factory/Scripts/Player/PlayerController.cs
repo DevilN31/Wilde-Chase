@@ -233,12 +233,12 @@ public class PlayerController : MonoBehaviour
 
     void InstantiateProps() // Instantiates all the props from the throwableProps list
     {
-        foreach(ThrowingProp t in throwableProps)
+        /*foreach(ThrowingProp t in throwableProps)
         {
             ThrowingProp temp = Instantiate(t, hand.position, transform.rotation);
             throwablePool.Add(temp);
             temp.gameObject.SetActive(false);
-        }
+        }*/
     }
 
     public void TakeDamage(float damage)

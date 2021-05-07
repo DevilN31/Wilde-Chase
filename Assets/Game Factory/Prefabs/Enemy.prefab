@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1413589124618944201}
-  - component: {fileID: 3883831226913209815}
+  - component: {fileID: -5594404086668240138}
   m_Layer: 20
   m_Name: Enemy
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &3883831226913209815
+--- !u!114 &-5594404086668240138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4294967295
   sphereCastRadius: 15
   isHorseRunning: 0
   isRestartedAi: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   OnEnableEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3883831226913209815}
+      - m_Target: {fileID: 0}
         m_MethodName: SetClosestWaypoint
         m_Mode: 1
         m_Arguments:

@@ -966,12 +966,12 @@ PrefabInstance:
     - target: {fileID: 6971602734489804523, guid: 11754d2ab0fd0d14691649d89db849d3,
         type: 3}
       propertyPath: Editor_Tabs1
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6971602734489804523, guid: 11754d2ab0fd0d14691649d89db849d3,
         type: 3}
       propertyPath: Editor_Tabs2
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6971967455088609841, guid: 11754d2ab0fd0d14691649d89db849d3,
         type: 3}
@@ -1056,7 +1056,7 @@ PrefabInstance:
     - target: {fileID: 7013915222224335972, guid: 11754d2ab0fd0d14691649d89db849d3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.173
+      value: 1.99
       objectReference: {fileID: 0}
     - target: {fileID: 7013915223404453403, guid: 11754d2ab0fd0d14691649d89db849d3,
         type: 3}

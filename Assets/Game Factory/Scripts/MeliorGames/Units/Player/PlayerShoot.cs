@@ -6,15 +6,11 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 {
   public class PlayerShoot : MonoBehaviour
   {
-    public PlayerController PlayerController;
-    
     public TrajectoryRenderer TrajectoryRenderer;
     public Camera MainCamera;
 
     public Transform SpawnTransform;
     public Vector3 TargetPosition;
-
-    public GameObject Projectile;
     
     public List<Projectile> Projectiles = new List<Projectile>();
 
