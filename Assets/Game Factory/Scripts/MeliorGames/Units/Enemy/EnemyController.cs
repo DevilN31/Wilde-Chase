@@ -10,6 +10,8 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     public Animator Animator;
     public DamageReceiver DamageReceiver;
     public EnemyPlayerFollow PlayerFollow;
+    public EnemyShoot EnemyShoot;
+    public Aggro EnemyAggro;
     public Ragdoll Ragdoll;
 
     private void Start()
@@ -20,7 +22,9 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     private void OnDamageReceived_Handler()
     {
       TakeOffHorse();
+      EnemyAggro.enabled = false;
       Animator.enabled = false;
+      EnemyShoot.enabled = false;
       PlayerFollow.StopHorse();
       Ragdoll.EnableRagdollState();
     }

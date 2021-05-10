@@ -27,6 +27,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         SpawnTransform.localEulerAngles = new Vector3(-AngleInDegrees, 0f, 0f);
         TargetPosition = PickTarget();
         Time.timeScale = 0.35f;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
     
         CalculateVelocity();
       }
@@ -34,6 +35,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       if (Input.GetMouseButtonUp(0))
       {
         Time.timeScale = 1f;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
         TrajectoryRenderer.HideTrajectory();
         Shot(speed);
       }

@@ -7,19 +7,18 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
 {
     public class EnemyPlayerFollow : MonoBehaviour
     {
-      public GameObject Player;
-      
+      public Transform Player;
       public MAnimalAIControl AnimalAI;
 
-      private void Start()
+      public void SetTarget(Transform target)
       {
-        StartCoroutine(SetTargetCoroutine());
+        Player = target;
+        //StartCoroutine(SetTargetCoroutine());
       }
 
-      private IEnumerator SetTargetCoroutine()
+      public void StartHorse()
       {
-        yield return new WaitForSeconds(1f);
-        AnimalAI.SetTarget(Player.transform, true);
+        AnimalAI.SetTarget(Player.transform, false);
         AnimalAI.StoppingDistance = 10f;
       }
 
@@ -27,6 +26,13 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       {
         AnimalAI.Stop();
         AnimalAI.enabled = false;
+      }
+      
+      private IEnumerator SetTargetCoroutine()
+      {
+        yield return new WaitForSeconds(0.0f);
+        AnimalAI.SetTarget(Player.transform, false);
+        AnimalAI.StoppingDistance = 10f;
       }
     }
 }

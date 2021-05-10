@@ -42,7 +42,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     public void HideTrajectory()
     {
-      //lineRenderer.startWidth = 0;
+      lineRenderer.startWidth = 0;
     }
   }
 }

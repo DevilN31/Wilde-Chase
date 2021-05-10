@@ -19,6 +19,9 @@ namespace Game_Factory.Scripts.MeliorGames.CameraControl
         transform.position.z - MovementTarget.position.z);
     }
 
+    public void SetTarget(Transform target) => 
+      MovementTarget = target;
+
     private void FixedUpdate()
     {
       float positionX = Mathf.SmoothDamp(transform.position.x, MovementTarget.position.x + offset.x, ref velocity.x, SmoothTime);
