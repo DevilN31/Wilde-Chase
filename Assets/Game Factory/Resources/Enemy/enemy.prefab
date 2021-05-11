@@ -1166,7 +1166,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4936473993322770752}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   Reloading: 0
   FireRate: 3
   MaxBulletCount: 5
-  BulletPrefab: {fileID: 4854662858692505717, guid: 522b8f773b384674a945f12c7632d184,
+  BulletPrefab: {fileID: 3310129598631491189, guid: 522b8f773b384674a945f12c7632d184,
     type: 3}
   BulletSpawn: {fileID: 6344740469621972258}
   Target: {fileID: 0}
@@ -1361,7 +1361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b721b12b9cff3c45953b6cfe300687b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerObserver: {fileID: 0}
   EnemyShoot: {fileID: 4936473993322770756}
   EnemyPlayerFollow: {fileID: 8871781168236184463}
 --- !u!1 &4936842453756699918
@@ -5143,7 +5142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8871755743508424600}
   m_LocalRotation: {x: -0.50000036, y: 0.49999964, z: 0.49999964, w: 0.50000036}
-  m_LocalPosition: {x: -0, y: 1.3553048, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3553048, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8866018222934388124}
@@ -5560,7 +5559,7 @@ MonoBehaviour:
   PivotPosDir: 0
   showStates: 1
   ModeShowAbilities: 1
-  Editor_Tabs1: 0
+  Editor_Tabs1: 1
   Editor_Tabs2: 4
   SelectedMode: 0
   hitLayer:

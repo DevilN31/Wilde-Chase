@@ -137,7 +137,7 @@ MonoBehaviour:
   SpawnTransform: {fileID: 8100145625146105539}
   TargetPosition: {x: 0, y: 0, z: 0}
   Projectiles:
-  - {fileID: 642889440089617080, guid: b5c073e7604b6d241a53183c26836cca, type: 3}
+  - {fileID: 642889440089617080, guid: f44981e3bf1904e4c931813a5c9ad1f0, type: 3}
   AngleInDegrees: 25
 --- !u!114 &790557611681741446
 MonoBehaviour:

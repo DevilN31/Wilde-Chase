@@ -13,7 +13,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     public float FireRate;
     public int MaxBulletCount = 5;
 
-    public Projectile BulletPrefab;
+    public EnemyProjectile BulletPrefab;
     public Transform BulletSpawn;
     public Transform Target;
 
@@ -81,7 +81,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     {
       View.PlayShoot();
       bulletCurrentCount--;
-      Projectile bullet = Instantiate(BulletPrefab, BulletSpawn.position, Quaternion.identity);
+      EnemyProjectile bullet = Instantiate(BulletPrefab, BulletSpawn.position, Quaternion.identity);
       bullet.GetComponent<Rigidbody>().velocity = target * 5;
       lastShot = Time.time;
     }
