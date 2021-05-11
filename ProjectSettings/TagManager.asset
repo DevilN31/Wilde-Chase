@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Stair
   - Path
+  - Ground
   layers:
   - Default
   - TransparentFX
