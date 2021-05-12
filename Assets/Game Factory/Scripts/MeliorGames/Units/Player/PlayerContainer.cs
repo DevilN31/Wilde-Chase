@@ -5,6 +5,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 {
   public class PlayerContainer : MonoBehaviour
   {
+    public PlayerMain PlayerMain;
     public PlayerShoot PlayerShoot;
     public MAnimalAIControl PlayerHorse;
     public Transform ShootTarget;

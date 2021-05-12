@@ -14,6 +14,8 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     public Aggro EnemyAggro;
     public Ragdoll Ragdoll;
 
+    public bool Dead;
+
     private void Start()
     {
       DamageReceiver.DamageReceived += OnDamageReceived_Handler;
@@ -21,6 +23,9 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
 
     private void OnDamageReceived_Handler()
     {
+      if (Dead) return;
+      
+      Dead = true;
       TakeOffHorse();
       EnemyAggro.enabled = false;
       Animator.enabled = false;
