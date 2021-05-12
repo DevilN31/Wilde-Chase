@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Game_Factory.Scripts.MeliorGames.CameraControl;
 using Game_Factory.Scripts.MeliorGames.Infrastructure.AssetManagement;
-using Game_Factory.Scripts.MeliorGames.Level;
+using Game_Factory.Scripts.MeliorGames.LevelManagement;
 using Game_Factory.Scripts.MeliorGames.Units.Enemy;
 using Game_Factory.Scripts.MeliorGames.Units.Player;
 using MalbersAnimations.Controller;
@@ -13,13 +13,8 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
 {
     public class GameFactory : MonoBehaviour
     {
-        public PlayerInitialPoint PlayerInitialPoint;
-        public List<EnemyInitialPoint> EnemyInitialPoints;
-
-        public MWayPoint InitialWayPoint;
-        
-        private PlayerContainer playerContainer;
-        private List<EnemyContainer> enemies = new List<EnemyContainer>();
+        public PlayerContainer PlayerContainer;
+        public List<EnemyContainer> Enemies = new List<EnemyContainer>();
 
         private AssetProvider _assetProvider;
 
@@ -27,26 +22,12 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
         {
             _assetProvider = new AssetProvider();
         }
-
-        private void Start()
-        {
-            CreatePlayer(PlayerInitialPoint.gameObject);
-            SetCameraFollow();
-
-            foreach (EnemyInitialPoint point in EnemyInitialPoints)
-            {
-                var enemy = CreateEnemy(point.gameObject);
-                point.enemies.Add(enemy);
-            }
-        }
-
+        
         public void CreatePlayer(GameObject at)
         {
-            playerContainer = 
+            PlayerContainer = 
                 _assetProvider.Instantiate(AssetPath.PlayerPath, at.transform.position, at.transform.rotation).
                 GetComponent<PlayerContainer>();
-            
-            playerContainer.Init(InitialWayPoint, Camera.main);
         }
 
         public EnemyContainer CreateEnemy(GameObject at)
@@ -55,9 +36,9 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
                 _assetProvider.Instantiate(
                     AssetPath.EnemyPath, at.transform.position, at.transform.rotation).GetComponent<EnemyContainer>();
             
-            enemy.Init(playerContainer.PlayerTransform, playerContainer.ShootTarget);
+            enemy.Init(PlayerContainer.PlayerTransform, PlayerContainer.ShootTarget);
 
-            enemies.Add(enemy);
+            Enemies.Add(enemy);
 
             return enemy;
         }
@@ -65,7 +46,8 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
         public void SetCameraFollow()
         {
             CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
-            cameraFollow.SetTarget(playerContainer.PlayerTransform);
+            cameraFollow.SetTarget(PlayerContainer.PlayerTransform);
+            //cameraFollow.CalculateOffset();
         }
     }
 }
