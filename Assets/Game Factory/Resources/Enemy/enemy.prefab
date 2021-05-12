@@ -1304,6 +1304,7 @@ MonoBehaviour:
   EnemyShoot: {fileID: 4936473993322770756}
   EnemyAggro: {fileID: 1156161874467852479}
   Ragdoll: {fileID: 4936473993322770757}
+  Dead: 0
 --- !u!114 &4936473993322770757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,6 +1489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6bdf4a3fe01c3428765d87c0543e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyController: {fileID: 4936473993322770754}
   EnemyShoot: {fileID: 4936473993322770756}
   EnemyPlayerFollow: {fileID: 8871781168236184463}
   Aggro: {fileID: 1156161874467852479}

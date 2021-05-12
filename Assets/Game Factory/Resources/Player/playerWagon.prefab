@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 738413182860895670}
   - component: {fileID: 799492658429481394}
   - component: {fileID: 790557611681741447}
-  - component: {fileID: 790557611681741446}
   - component: {fileID: 790557611681741441}
+  - component: {fileID: 4427837536435765504}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -139,20 +139,6 @@ MonoBehaviour:
   Projectiles:
   - {fileID: 642889440089617080, guid: f44981e3bf1904e4c931813a5c9ad1f0, type: 3}
   AngleInDegrees: 25
---- !u!114 &790557611681741446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790557611681741444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e7000c362f34145a34808536fd1595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Team: 0
-  Collider: {fileID: 799492658429481394}
 --- !u!114 &790557611681741441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +151,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d138854af67b1b419a46b1b29b4361f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
   Health: 100
-  Receiver: {fileID: 790557611681741446}
+  Receiver: {fileID: 4427837536435765504}
+--- !u!114 &4427837536435765504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790557611681741444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b656c0777664891a6b2ab07e2afc980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collider: {fileID: 799492658429481394}
 --- !u!1 &790597329578957034
 GameObject:
   m_ObjectHideFlags: 0
@@ -8087,7 +8087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719882418859005408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.117, z: 0}
+  m_LocalPosition: {x: 0, y: 0.784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 787146374549491710}
@@ -9119,6 +9119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeafc653c36a65a499abad21fd1bdde0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMain: {fileID: 790557611681741441}
   PlayerShoot: {fileID: 790557611681741447}
   PlayerHorse: {fileID: 7721275471658704344}
   ShootTarget: {fileID: 7719882418859005411}
