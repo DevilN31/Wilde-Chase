@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &961843237946473263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2719904828802499759}
+  m_Layer: 23
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2719904828802499759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961843237946473263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5428000320048411877}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4976488786884708614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,6 +1380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9ff0b074a0bd444bf224a5062000fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pistol: {fileID: 1148277295581449146}
+  Hand: {fileID: 5428000320048411876}
 --- !u!114 &1156161874467852479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,7 +1472,8 @@ Transform:
   m_LocalRotation: {x: 0.52913606, y: 0.77647024, z: -0.2766451, w: 0.2014362}
   m_LocalPosition: {x: 0.2, y: 0.025, z: -0.07}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
-  m_Children: []
+  m_Children:
+  - {fileID: 2719904828802499759}
   m_Father: {fileID: 8954783426159173475}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 140, y: -1.5, z: -112}
@@ -5561,8 +5594,8 @@ MonoBehaviour:
   PivotPosDir: 0
   showStates: 1
   ModeShowAbilities: 1
-  Editor_Tabs1: 1
-  Editor_Tabs2: 4
+  Editor_Tabs1: 4
+  Editor_Tabs2: 0
   SelectedMode: 0
   hitLayer:
     serializedVersion: 2
@@ -6961,7 +6994,7 @@ MonoBehaviour:
   instantiateTracks: 0
   Tracks: {fileID: 198000013136168986, guid: 70fe502b33f22f9458eee8b3c5b3925b, type: 3}
   Dust: {fileID: 198000010737321038, guid: f0185de6019ebaa4db45528f37bad8d2, type: 3}
-  StepsVolume: 0.2
+  StepsVolume: 0
   DustParticles: 16
   Scale: {x: 1, y: 1, z: 1}
   clips:
@@ -7748,6 +7781,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   AnimalAI: {fileID: 8870662943287552596}
+  Animal: {fileID: 8831298892302017442}
+  RunAwayPoint: {fileID: 0}
+  RemainingDistance: 0
 --- !u!1 &8871790858049680256
 GameObject:
   m_ObjectHideFlags: 0
@@ -17582,6 +17618,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1147306972561048844}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1148277295581449146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000010943811254, guid: 0ba5880b02e1ab24b8ba198a97da9322,
+    type: 3}
+  m_PrefabInstance: {fileID: 1147306972561048844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914576968383604888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17863,15 +17905,15 @@ PrefabInstance:
     - {fileID: 54000011201453818, guid: cd655bcb33b07a94c9e01c2e9b6b5573, type: 3}
     - {fileID: 65000013505325162, guid: cd655bcb33b07a94c9e01c2e9b6b5573, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd655bcb33b07a94c9e01c2e9b6b5573, type: 3}
---- !u!4 &2835604468774775543 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4000012805563850, guid: cd655bcb33b07a94c9e01c2e9b6b5573,
-    type: 3}
-  m_PrefabInstance: {fileID: 2833928273863102269}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2834927186515126953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000012785853844, guid: cd655bcb33b07a94c9e01c2e9b6b5573,
+    type: 3}
+  m_PrefabInstance: {fileID: 2833928273863102269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2835604468774775543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000012805563850, guid: cd655bcb33b07a94c9e01c2e9b6b5573,
     type: 3}
   m_PrefabInstance: {fileID: 2833928273863102269}
   m_PrefabAsset: {fileID: 0}

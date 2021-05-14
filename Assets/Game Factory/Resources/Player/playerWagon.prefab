@@ -137,7 +137,12 @@ MonoBehaviour:
   SpawnTransform: {fileID: 8100145625146105539}
   TargetPosition: {x: 0, y: 0, z: 0}
   Projectiles:
+  - {fileID: 642889440089617080, guid: 16a8b309bc9886740842c9372a9be023, type: 3}
   - {fileID: 642889440089617080, guid: f44981e3bf1904e4c931813a5c9ad1f0, type: 3}
+  - {fileID: 642889440089617080, guid: e9eff71d9b5c2ed40b57d5a67377b4c1, type: 3}
+  - {fileID: 642889440089617080, guid: 4911e9a481c994c489747e9db833f3d8, type: 3}
+  - {fileID: 642889440089617080, guid: 750cdd331cf50c645b77d3e1b395685c, type: 3}
+  - {fileID: 642889440089617080, guid: 29a2e7fabfc02d94ba36ca4abe3af45f, type: 3}
   AngleInDegrees: 25
 --- !u!114 &790557611681741441
 MonoBehaviour:
@@ -379,7 +384,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59cda78688bf9d74ea922c93fa443e6e, type: 2}
+  - {fileID: 2100000, guid: bb098cd979c25d2469295851ae9bd47a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3150,6 +3155,36 @@ Transform:
   - {fileID: 3619816162200769199}
   m_Father: {fileID: 3612787861682844111}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5011687645429829133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5029523839840632685}
+  m_Layer: 13
+  m_Name: RotationTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5029523839840632685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011687645429829133}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.889, z: -4.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7724559834213312779}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5183183799455365156
 GameObject:
@@ -8696,6 +8731,7 @@ Transform:
   - {fileID: 7724767096843435217}
   - {fileID: 7722569684746513861}
   - {fileID: 7722640409914279215}
+  - {fileID: 5029523839840632685}
   m_Father: {fileID: 7724418670456374251}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9121,9 +9157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerMain: {fileID: 790557611681741441}
   PlayerShoot: {fileID: 790557611681741447}
-  PlayerHorse: {fileID: 7721275471658704344}
+  PlayerHorseAI: {fileID: 7721275471658704344}
+  PlayerHorse: {fileID: 7689048832522741797}
   ShootTarget: {fileID: 7719882418859005411}
   PlayerTransform: {fileID: 787146374549491710}
+  WagonTransform: {fileID: 7724439523251256007}
 --- !u!1 &7720449642624791557
 GameObject:
   m_ObjectHideFlags: 0
@@ -13281,7 +13319,7 @@ MonoBehaviour:
   instantiateTracks: 0
   Tracks: {fileID: 198000013136168986, guid: 70fe502b33f22f9458eee8b3c5b3925b, type: 3}
   Dust: {fileID: 198000010737321038, guid: f0185de6019ebaa4db45528f37bad8d2, type: 3}
-  StepsVolume: 0.2
+  StepsVolume: 0
   DustParticles: 16
   Scale: {x: 1, y: 1, z: 1}
   clips:
@@ -15135,15 +15173,15 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd655bcb33b07a94c9e01c2e9b6b5573, type: 3}
---- !u!4 &7576013593010037043 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4000012805563850, guid: cd655bcb33b07a94c9e01c2e9b6b5573,
-    type: 3}
-  m_PrefabInstance: {fileID: 7578816847529346297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7579224218225910125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000012785853844, guid: cd655bcb33b07a94c9e01c2e9b6b5573,
+    type: 3}
+  m_PrefabInstance: {fileID: 7578816847529346297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7576013593010037043 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000012805563850, guid: cd655bcb33b07a94c9e01c2e9b6b5573,
     type: 3}
   m_PrefabInstance: {fileID: 7578816847529346297}
   m_PrefabAsset: {fileID: 0}
