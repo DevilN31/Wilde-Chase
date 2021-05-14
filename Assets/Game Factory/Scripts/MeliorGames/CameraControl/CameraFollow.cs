@@ -13,8 +13,11 @@ namespace Game_Factory.Scripts.MeliorGames.CameraControl
     
     private Vector3 velocity;
 
-    public void SetTarget(Transform target) => 
-      MovementTarget = target;
+    public void SetTarget(Transform movementTarget, Transform rotationTarget)
+    {
+      MovementTarget = movementTarget;
+      RotationTarget = rotationTarget;
+    }
 
     public void CalculateOffset()
     {
@@ -33,9 +36,18 @@ namespace Game_Factory.Scripts.MeliorGames.CameraControl
 
         transform.position = new Vector3(positionX, positionY, positionZ);
 
+
+        /*Vector3 targetEulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + RotationTarget.eulerAngles.y, transform.eulerAngles.z);
+        transform.eulerAngles = targetEulerAngles;*/
+
+        // Vector3 targetRotation = new Vector3(transform.position.x, RotationTarget.position.y, transform.position.z);
+        // Quaternion rotation = Quaternion.LookRotation(-targetRotation);
+        //transform.rotation = rotation;
+
         //var towardsAngle = Quaternion.LookRotation(RotationTarget.position - transform.position);
         //transform.rotation = towardsAngle;
         //transform.rotation = Quaternion.Slerp(transform.rotation, RotationTarget.rotation, RotationSpeed * Time.fixedDeltaTime);
+
       }
     }
   }
