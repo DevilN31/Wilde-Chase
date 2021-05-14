@@ -1,5 +1,8 @@
-﻿using Game_Factory.Scripts.MeliorGames.Infrastructure;
+﻿using System;
+using Game_Factory.Scripts.MeliorGames.Infrastructure;
+using Game_Factory.Scripts.MeliorGames.Infrastructure.Data;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
+using Game_Factory.Scripts.MeliorGames.TimeService;
 using Game_Factory.Scripts.MeliorGames.UI.PopUp;
 using Game_Factory.Scripts.MeliorGames.Units.Player;
 using TMPro;
@@ -15,8 +18,10 @@ namespace Game_Factory.Scripts.MeliorGames.UI
 
     public Button PauseButton;
 
+    public LoadingCurtain LoadingCurtain;
     public PausePopUp PausePopUp;
     public GameOverPopUp GameOverPopUp;
+    public WinPopUp WinPopUp;
 
     private PlayerMain player;
     private LevelContainer levelContainer;
@@ -31,13 +36,66 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       player.Receiver.DamageReceived += UpdateHealthBar;
       player.Died += GameOverPopUp.Open;
       UpdateHealthBar();
+
+      SetLevelNumber(SaveLoadService.Instance.PlayerProgress.LevelID);
+      SubscribeOnLevelChange();
       
-      GameOverPopUp.Init(sceneLoader);
+      GameOverPopUp.Init(sceneLoader, LoadingCurtain);
+      WinPopUp.Init(sceneLoader, LoadingCurtain);
+      PausePopUp.Init(sceneLoader, LoadingCurtain);
+    }
+
+    private void Start()
+    {
+      PauseButton.onClick.AddListener(() =>
+      {
+        PausePopUp.Open();
+        TimeControl.Instance.PauseGame();
+      });
+    }
+
+    private void SubscribeOnLevelChange()
+    {
+      foreach (Level level in levelContainer.Levels)
+      {
+        level.Finished += OnLevelFinished_Handler;
+      }
+    }
+
+    private void OnLevelFinished_Handler(Level level)
+    {
+      bool enemiesDead = level.IsAllEnemiesDead();
+
+      if (enemiesDead)
+      {
+        if (level.Index >= levelContainer.Levels.Count)
+        {
+          WinPopUp.Open();
+        }
+        else
+        {
+          UpdateLevelText(level);
+        }
+      }
+      else
+      {
+        GameOverPopUp.Open();
+      }
     }
 
     private void UpdateHealthBar()
     {
       HealthBar.value = player.Health / player.MaxHealth;
+    }
+
+    private void UpdateLevelText(Level level)
+    {
+      SetLevelNumber(level.Index + 1);
+    }
+
+    private void SetLevelNumber(int index)
+    {
+      LevelNameTxt.text = $"Level {index}";
     }
   }
 }
