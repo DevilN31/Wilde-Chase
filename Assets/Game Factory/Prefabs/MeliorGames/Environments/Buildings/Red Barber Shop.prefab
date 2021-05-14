@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5318769332662503659}
   - component: {fileID: 5312452311377485917}
   - component: {fileID: 5301608067870980647}
+  - component: {fileID: 8238158215645392370}
   m_Layer: 0
   m_Name: SM_Building_Single_FrontDoor_Window_01
   m_TagString: Untagged
@@ -158,6 +159,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8238158215645392370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314885215702439971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.89488804, y: 0.7788893, z: 0}
+  m_Center: {x: -0.045479435, y: 0.014574856, z: -0.022800447}
 --- !u!1 &5314894630680880695
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +183,7 @@ GameObject:
   - component: {fileID: 5318237182026618987}
   - component: {fileID: 5311846019390010685}
   - component: {fileID: 5302386943784272653}
+  - component: {fileID: 2219374066811922531}
   m_Layer: 0
   m_Name: SM_Bld_Single_Front_02
   m_TagString: Untagged
@@ -239,6 +254,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2219374066811922531
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314894630680880695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 30d7ce72ebe404c43be72759b81f411e, type: 3}
 --- !u!1 &5314916654393931501
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +279,7 @@ GameObject:
   - component: {fileID: 5318498186411493257}
   - component: {fileID: 5312333389671240103}
   - component: {fileID: 5302278754098524497}
+  - component: {fileID: 3041710285396239004}
   m_Layer: 0
   m_Name: Red Barber Shop
   m_TagString: Untagged
@@ -330,6 +360,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3041710285396239004
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314916654393931501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ec0fc87734d022946b3c7b8c01b25d25, type: 3}
 --- !u!1 &5314945493349652845
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +385,7 @@ GameObject:
   - component: {fileID: 5318310431326199243}
   - component: {fileID: 5311988591750771025}
   - component: {fileID: 5301538356551565015}
+  - component: {fileID: 6918696373879594188}
   m_Layer: 0
   m_Name: SM_Building_Single_Front_Window_01
   m_TagString: Untagged
@@ -409,6 +454,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6918696373879594188
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314945493349652845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300006, guid: 7f87cd548156e204baf471c1abc0c545, type: 3}
 --- !u!1 &5315450853238842423
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +810,7 @@ GameObject:
   - component: {fileID: 5318521873995711175}
   - component: {fileID: 5311487858797968383}
   - component: {fileID: 5302073538347121613}
+  - component: {fileID: 5271616173705812693}
   m_Layer: 0
   m_Name: SM_Bld_Single_Front_01
   m_TagString: Untagged
@@ -821,6 +881,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5271616173705812693
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315799939011458915}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 7f87cd548156e204baf471c1abc0c545, type: 3}
 --- !u!1 &5315806992975044079
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1064,7 @@ GameObject:
   - component: {fileID: 5318520926968309471}
   - component: {fileID: 5311081647344915903}
   - component: {fileID: 5302194569189982229}
+  - component: {fileID: 8595280131528136978}
   m_Layer: 0
   m_Name: SM_Building_Single_FrontDoor_01
   m_TagString: Untagged
@@ -1059,6 +1134,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8595280131528136978
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315855257332235883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 7f87cd548156e204baf471c1abc0c545, type: 3}
 --- !u!1 &5315909355965803769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1317,7 @@ GameObject:
   - component: {fileID: 5318321917677302241}
   - component: {fileID: 5312425533561662027}
   - component: {fileID: 5302360226572744211}
+  - component: {fileID: 3079173033736184603}
   m_Layer: 0
   m_Name: SM_Bld_Single_Balcony_01
   m_TagString: Untagged
@@ -1296,6 +1386,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3079173033736184603
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316218035606794975}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c3926d48332ce3d4dbe8db3a389524aa, type: 3}
 --- !u!1 &5316300898553327839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1490,7 @@ GameObject:
   - component: {fileID: 5319128815085557583}
   - component: {fileID: 5311459348543354353}
   - component: {fileID: 5301807993413821861}
+  - component: {fileID: 4097052186937603336}
   m_Layer: 0
   m_Name: SM_Bld_Single_Deck_01
   m_TagString: Untagged
@@ -1454,6 +1559,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4097052186937603336
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316325465088277929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 037e1116f9272434e885bfbe6ba3f192, type: 3}
 --- !u!1001 &1633432953187627700
 PrefabInstance:
   m_ObjectHideFlags: 0
