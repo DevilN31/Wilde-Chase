@@ -1,4 +1,5 @@
-﻿using MalbersAnimations.Controller;
+﻿using System;
+using MalbersAnimations.Controller;
 using UnityEngine;
 
 namespace Game_Factory.Scripts.MeliorGames.Units.Player
@@ -7,13 +8,15 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
   {
     public PlayerMain PlayerMain;
     public PlayerShoot PlayerShoot;
-    public MAnimalAIControl PlayerHorse;
+    public MAnimalAIControl PlayerHorseAI;
+    public MAnimal PlayerHorse;
     public Transform ShootTarget;
     public Transform PlayerTransform;
+    public Transform WagonTransform;
 
     public void Init(MWayPoint wayPoint, Camera camera)
     {
-      PlayerHorse.SetTarget(wayPoint.transform, true);
+      PlayerHorseAI.SetTarget(wayPoint.transform, true);
       PlayerShoot.MainCamera = camera;
     }
   }

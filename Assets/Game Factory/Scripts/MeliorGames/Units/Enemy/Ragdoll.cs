@@ -36,6 +36,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       
       for (int i = 1; i < ragdollRigidbodies.Length; i++)
       {
+        ragdollRigidbodies[i].collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         ragdollRigidbodies[i].isKinematic = true;
       }
     }

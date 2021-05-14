@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game_Factory.Scripts.MeliorGames.Infrastructure.Data;
 using UnityEngine;
 
 namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
@@ -12,15 +13,27 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
     {
       foreach (Level level in Levels)
       {
-        level.LevelFinished += OnLevelFinishedHandler;
+        level.Finished += OnLevelFinished_Handler;
       }
     }
 
-    private void OnLevelFinishedHandler(Level level)
+    private void OnLevelFinished_Handler(Level level)
     {
       bool enemiesDead = level.IsAllEnemiesDead();
-      
-      Debug.Log(enemiesDead ? "Everyone dead" : "Someone is alive");
+
+      if (enemiesDead)
+      {
+        if (level.Index >= Levels.Count)
+        {
+          SaveLoadService.Instance.PlayerProgress.LevelID = Levels[0].Index;
+          SaveLoadService.Instance.SaveProgress();
+        }
+        else
+        {
+          SaveLoadService.Instance.PlayerProgress.LevelID = level.Index + 1;
+          SaveLoadService.Instance.SaveProgress();
+        }
+      }
     }
   }
 }

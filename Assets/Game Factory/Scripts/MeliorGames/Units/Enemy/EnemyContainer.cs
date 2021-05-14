@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MalbersAnimations.Controller;
+using UnityEngine;
 
 namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
 {
@@ -9,10 +10,11 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     public EnemyPlayerFollow EnemyPlayerFollow;
     public Aggro Aggro;
 
-    public void Init(Transform followTarget, Transform shootTarget)
+    public void Init(Transform followTarget, Transform shootTarget, MWayPoint runAwayWaypoint)
     {
       EnemyShoot.SetTarget(shootTarget);
       EnemyPlayerFollow.SetTarget(followTarget);
+      EnemyPlayerFollow.RunAwayPoint = runAwayWaypoint;
     }
   }
 }

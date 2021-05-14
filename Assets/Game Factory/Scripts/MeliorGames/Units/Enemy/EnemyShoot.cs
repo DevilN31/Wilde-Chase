@@ -2,6 +2,7 @@
 using System.Collections;
 using Game_Factory.Scripts.MeliorGames.Projectiles;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
 {
@@ -23,11 +24,13 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     private float lastShot;
     private float angleToTarget;
 
+    private bool ableToShoot;
+
     private void Start()
     {
       bulletCurrentCount = MaxBulletCount;
-      lastShot = Time.time + IdleDuration;
-      PickDirection();
+      
+      StartCoroutine(InitialDelay());
     }
 
     public void SetTarget(Transform target)
@@ -37,6 +40,10 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
 
     private void Update()
     {
+      if(!ableToShoot)
+        return;
+      
+      PickDirection();
       if (CheckAttackCooldown() && !Reloading)
       {
         Attack(PickDirection());
@@ -56,6 +63,18 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
         View.PlayReload();
         StartCoroutine(ReloadingCoroutine(ReloadDuration));
       }
+    }
+
+    private IEnumerator InitialDelay()
+    {
+      float randomDelay = Random.Range(0f, 5f);
+      yield return new WaitForSeconds(randomDelay);
+      
+      View.SetReadyToShoot();
+      lastShot = Time.time + IdleDuration + Random.Range(0f, 5f);
+      PickDirection();
+      
+      ableToShoot = true;
     }
 
     private IEnumerator ReloadingCoroutine(float duration)

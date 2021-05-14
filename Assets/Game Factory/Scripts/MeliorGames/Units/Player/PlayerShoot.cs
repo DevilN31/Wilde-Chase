@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Game_Factory.Scripts.MeliorGames.Projectiles;
+using Game_Factory.Scripts.MeliorGames.TimeService;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Game_Factory.Scripts.MeliorGames.Units.Player
 {
@@ -22,20 +24,26 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     
     private void Update()
     {
+      if (EventSystem.current.IsPointerOverGameObject() ||
+          EventSystem.current.currentSelectedGameObject != null)
+      {
+        Debug.Log("UI Tap");
+        return;
+      }
+        
+      
       if (Input.GetMouseButton(0))
       {
         SpawnTransform.localEulerAngles = new Vector3(-AngleInDegrees, 0f, 0f);
         TargetPosition = PickTarget();
-        Time.timeScale = 0.35f;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        TimeControl.Instance.SlowDown();
     
         CalculateVelocity();
       }
     
       if (Input.GetMouseButtonUp(0))
       {
-        Time.timeScale = 1f;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        TimeControl.Instance.SpeedUp();
         TrajectoryRenderer.HideTrajectory();
         Shot(speed);
       }

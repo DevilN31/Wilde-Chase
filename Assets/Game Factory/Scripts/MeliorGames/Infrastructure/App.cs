@@ -2,6 +2,7 @@
 using Game_Factory.Scripts.MeliorGames.Infrastructure.Data;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn;
+using Game_Factory.Scripts.MeliorGames.TimeService;
 using Game_Factory.Scripts.MeliorGames.UI;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
 
     public SaveLoadService SaveLoadService;
 
+    
     private Level currentLevel;
 
     private void Start()
@@ -29,6 +31,8 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
 
     private void Init()
     {
+      GameplayHUD.LoadingCurtain.Show();
+      GameplayHUD.LoadingCurtain.Hide();
       LoadProgress();
       PlayerSpawner.Init(PlayerInitialPoint(), currentLevel.wayPoint);
       EnemySpawner.Init();

@@ -13,8 +13,12 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
 {
     public class GameFactory : MonoBehaviour
     {
+        [HideInInspector]
         public PlayerContainer PlayerContainer;
+        [HideInInspector]
         public List<EnemyContainer> Enemies = new List<EnemyContainer>();
+        
+        public MWayPoint EnemyRunAwayWaypoint;
 
         private AssetProvider _assetProvider;
 
@@ -30,13 +34,13 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
                 GetComponent<PlayerContainer>();
         }
 
-        public EnemyContainer CreateEnemy(GameObject at)
+        public EnemyContainer CreateEnemy(Vector3 at)
         {
             EnemyContainer enemy = 
                 _assetProvider.Instantiate(
-                    AssetPath.EnemyPath, at.transform.position, at.transform.rotation).GetComponent<EnemyContainer>();
+                    AssetPath.EnemyPath, at, Quaternion.identity).GetComponent<EnemyContainer>();
             
-            enemy.Init(PlayerContainer.PlayerTransform, PlayerContainer.ShootTarget);
+            enemy.Init(PlayerContainer.PlayerTransform, PlayerContainer.ShootTarget, EnemyRunAwayWaypoint);
 
             Enemies.Add(enemy);
 
@@ -46,7 +50,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
         public void SetCameraFollow()
         {
             CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
-            cameraFollow.SetTarget(PlayerContainer.PlayerTransform);
+            cameraFollow.SetTarget(PlayerContainer.PlayerTransform, PlayerContainer.WagonTransform);
             //cameraFollow.CalculateOffset();
         }
     }

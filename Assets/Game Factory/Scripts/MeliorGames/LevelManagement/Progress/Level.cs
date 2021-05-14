@@ -18,7 +18,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
 
     public MWayPoint wayPoint;
 
-    public Action<Level> LevelFinished;
+    public Action<Level> Finished;
 
     private void Start()
     {
@@ -39,22 +39,11 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
 
     private void FinishPointTriggerEnter(Collider obj)
     {
-      LevelFinished?.Invoke(this);
-      
-      SaveProgress();
+      Finished?.Invoke(this);
     }
     
     private void FinishPointTriggerExit(Collider obj)
     {
     }
-    
-    private void SaveProgress()
-    {
-      SaveLoadService.Instance.PlayerProgress.LevelID = Index + 1;
-      SaveLoadService.Instance.SaveProgress();
-    }
-
-
-    
   }
 }

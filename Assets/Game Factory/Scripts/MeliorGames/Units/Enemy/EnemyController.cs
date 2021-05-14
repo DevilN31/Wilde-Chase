@@ -30,7 +30,8 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       EnemyAggro.enabled = false;
       Animator.enabled = false;
       EnemyShoot.enabled = false;
-      PlayerFollow.StopHorse();
+      //PlayerFollow.StopHorse();
+      PlayerFollow.RunAway();
       Ragdoll.EnableRagdollState();
     }
 

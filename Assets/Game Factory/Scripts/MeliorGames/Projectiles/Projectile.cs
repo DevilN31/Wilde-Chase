@@ -10,7 +10,13 @@ namespace Game_Factory.Scripts.MeliorGames.Projectiles
     public bool Thrown;
     public GameObject View;
 
+    public TrailRenderer Trail;
     public Rigidbody Rigidbody;
+
+    private void Awake()
+    {
+      Trail = GetComponent<TrailRenderer>();
+    }
 
     private void Update()
     {
@@ -22,11 +28,12 @@ namespace Game_Factory.Scripts.MeliorGames.Projectiles
 
     private void OnCollisionEnter(Collision other)
     {
-      if (other.gameObject.CompareTag("Ground"))
+      //if (other.gameObject.CompareTag("Ground"))
       {
         Thrown = false;
         //Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         Rigidbody.velocity = Vector3.zero;
+        Trail.enabled = false;
       }
     }
   }
