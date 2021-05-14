@@ -9,6 +9,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public float Health;
     
     public PlayerDamageReceiver Receiver;
+    public PlayerShoot Shooter;
 
     public Action Died;
 

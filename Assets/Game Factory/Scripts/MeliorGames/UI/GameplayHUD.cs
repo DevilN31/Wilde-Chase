@@ -15,6 +15,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
   {
     public TMP_Text LevelNameTxt;
     public Slider HealthBar;
+    public TMP_Text ReloadingText;
 
     public Button PauseButton;
 
@@ -22,6 +23,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
     public PausePopUp PausePopUp;
     public GameOverPopUp GameOverPopUp;
     public WinPopUp WinPopUp;
+    public NextLevelPopUp NextLevelPopUp;
 
     private PlayerMain player;
     private LevelContainer levelContainer;
@@ -40,6 +42,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       SetLevelNumber(SaveLoadService.Instance.PlayerProgress.LevelID);
       SubscribeOnLevelChange();
       
+      NextLevelPopUp.Init(LoadingCurtain);
       GameOverPopUp.Init(sceneLoader, LoadingCurtain);
       WinPopUp.Init(sceneLoader, LoadingCurtain);
       PausePopUp.Init(sceneLoader, LoadingCurtain);
@@ -52,6 +55,11 @@ namespace Game_Factory.Scripts.MeliorGames.UI
         PausePopUp.Open();
         TimeControl.Instance.PauseGame();
       });
+    }
+
+    private void Update()
+    {
+      CheckPlayerReload();
     }
 
     private void SubscribeOnLevelChange()
@@ -74,6 +82,8 @@ namespace Game_Factory.Scripts.MeliorGames.UI
         }
         else
         {
+          TimeControl.Instance.PauseGame();
+          NextLevelPopUp.Open();
           UpdateLevelText(level);
         }
       }
@@ -96,6 +106,11 @@ namespace Game_Factory.Scripts.MeliorGames.UI
     private void SetLevelNumber(int index)
     {
       LevelNameTxt.text = $"Level {index}";
+    }
+
+    private void CheckPlayerReload()
+    {
+      ReloadingText.enabled = !player.Shooter.ReadyToShoot;
     }
   }
 }
