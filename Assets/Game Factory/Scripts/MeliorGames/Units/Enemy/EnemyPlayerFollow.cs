@@ -47,7 +47,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       {
         runningAway = true;
         AnimalAI.SetTarget(RunAwayPoint.transform);
-        SpeedUpHorse(10);
+        SpeedUpHorse(5);
       }
       
       public void SpeedUpHorse(float speed)
@@ -77,12 +77,12 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
           if (RemainingDistance >= necessaryDistanceToPlayer && !isHorseRunning)
           {
             isHorseRunning = true;
-            SpeedUpHorse(2);
+            SpeedUpHorse(1);
           }
           else if (RemainingDistance < necessaryDistanceToPlayer && isHorseRunning)
           {
             isHorseRunning = false;
-            SlowDownHorse(2);
+            SlowDownHorse(1);
           }
         }
       }

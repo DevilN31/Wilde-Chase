@@ -42,7 +42,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       SetLevelNumber(SaveLoadService.Instance.PlayerProgress.LevelID);
       SubscribeOnLevelChange();
       
-      NextLevelPopUp.Init(LoadingCurtain);
+      NextLevelPopUp.Init(LoadingCurtain, player, this);
       GameOverPopUp.Init(sceneLoader, LoadingCurtain);
       WinPopUp.Init(sceneLoader, LoadingCurtain);
       PausePopUp.Init(sceneLoader, LoadingCurtain);
@@ -93,7 +93,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       }
     }
 
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
       HealthBar.value = player.Health / player.MaxHealth;
     }

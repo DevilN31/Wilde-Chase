@@ -15,8 +15,8 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private void Start()
     {
-      Health = MaxHealth;
       Receiver.DamageReceived += OnDamageReceived_Handler;
+      ResetHealth();
     }
 
     private void OnDamageReceived_Handler()
@@ -28,6 +28,12 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         Receiver.Collider.enabled = false;
         Died?.Invoke();
       }
+    }
+
+    public void ResetHealth()
+    {
+      Health = MaxHealth;
+      
     }
   }
 }
