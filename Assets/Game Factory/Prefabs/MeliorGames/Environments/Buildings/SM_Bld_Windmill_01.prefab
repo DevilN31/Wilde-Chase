@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 4597188485534677893}
   - component: {fileID: 4587992037111237771}
   - component: {fileID: 4580100972856109477}
+  - component: {fileID: 2151402227536453768}
   m_Layer: 0
   m_Name: SM_Bld_Windmill_01
   m_TagString: Untagged
@@ -239,3 +240,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2151402227536453768
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600873316360229051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0816b9bcf94733446a3b48e589e8bb19, type: 3}

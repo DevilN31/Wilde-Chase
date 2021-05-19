@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 7131444948895581355}
   - component: {fileID: 7102643343822720707}
   - component: {fileID: 7112450842622931545}
+  - component: {fileID: 6627481717994871675}
   m_Layer: 0
   m_Name: SM_Veh_Stagecoach_01
   m_TagString: Untagged
@@ -605,6 +606,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6627481717994871675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7125603469037049089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2431335, y: 2.6016846, z: 4.560013}
+  m_Center: {x: 0, y: 1.657074, z: 0.11241913}
 --- !u!1 &7126267507580053779
 GameObject:
   m_ObjectHideFlags: 0

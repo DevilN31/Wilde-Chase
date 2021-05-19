@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   View: {fileID: 4936473993322770759}
   Reloading: 0
-  FireRate: 3
+  FireRate: 2
   MaxBulletCount: 5
   BulletPrefab: {fileID: 3310129598631491189, guid: 522b8f773b384674a945f12c7632d184,
     type: 3}

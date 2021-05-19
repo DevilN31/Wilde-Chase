@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game Factory/Scenes/MeliorGames/Test.unity
     guid: 2691e3540b1a00e4f84cee714ba17d6c
+  - enabled: 1
+    path: Assets/Game Factory/Scenes/MeliorGames/Test 1.unity
+    guid: 880c81e9618dd644685c8f18a12539dc
   - enabled: 0
     path: Assets/Game Factory/Scenes/MeliorGames/TestScene.unity
     guid: 90958762def873b4a96f16b81eda4d74
