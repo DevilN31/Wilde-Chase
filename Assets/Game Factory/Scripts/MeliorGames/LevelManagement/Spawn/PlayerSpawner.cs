@@ -1,4 +1,5 @@
 ﻿using Game_Factory.Scripts.MeliorGames.Infrastructure;
+using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using MalbersAnimations.Controller;
 using UnityEngine;
 
@@ -6,18 +7,21 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
 {
   public class PlayerSpawner : MonoBehaviour
   {
-    public GameFactory GameFactory;
+    private GameFactory gameFactory;
+    private LevelContainer levelContainer;
 
-    public void Init(GameObject spawn, MWayPoint wayPoint)
+    public void Init(GameFactory _gameFactory, GameObject spawn, MWayPoint wayPoint, LevelContainer _levelContainer)
     {
+      gameFactory = _gameFactory;
+      levelContainer = _levelContainer;
       SpawnPlayer(spawn);
-      GameFactory.PlayerContainer.Init(wayPoint, Camera.main);
+      gameFactory.PlayerContainer.Init(wayPoint, Camera.main, levelContainer);
     }
 
     private void SpawnPlayer(GameObject spawn)
     {
-      GameFactory.CreatePlayer(spawn);
-      GameFactory.SetCameraFollow();
+      gameFactory.CreatePlayer(spawn);
+      gameFactory.SetCameraFollow();
     }
   }
 }

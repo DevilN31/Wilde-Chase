@@ -19,6 +19,11 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
 
     private void OnLevelFinished_Handler(Level level)
     {
+      SaveProgress(level);
+    }
+
+    private void SaveProgress(Level level)
+    {
       bool enemiesDead = level.IsAllEnemiesDead();
 
       if (enemiesDead)

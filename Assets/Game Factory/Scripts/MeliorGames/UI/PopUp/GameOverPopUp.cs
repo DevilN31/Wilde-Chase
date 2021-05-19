@@ -22,7 +22,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
     {
       RestartButton.onClick.AddListener(() =>
       {
-        sceneLoader.Load("Test");
+        sceneLoader.Load("Test 1");
       });
     }
   }

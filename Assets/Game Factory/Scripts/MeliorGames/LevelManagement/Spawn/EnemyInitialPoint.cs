@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Game_Factory.Scripts.MeliorGames.Units.Enemy;
 using UnityEditor;
@@ -14,6 +15,8 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
 
     public TriggerObserver TriggerObserver;
     public List<EnemyContainer> enemies = new List<EnemyContainer>();
+
+    public Action<EnemyInitialPoint> PlayerAppearance;
 
     private void Start()
     {
@@ -49,7 +52,9 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
 
     private void TriggerEnter(Collider obj)
     {
-      TriggerEnemies();
+      Debug.Log("Trigger enter");
+      PlayerAppearance?.Invoke(this);
+      StartCoroutine(TriggerCoroutine());
     }
 
     private void TriggerExit(Collider obj)
@@ -62,6 +67,12 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
       {
         enemy.Aggro.TriggerEnemy();
       }
+    }
+
+    private IEnumerator TriggerCoroutine()
+    {
+      yield return new WaitForSeconds(0.5f);
+      TriggerEnemies();
     }
 
   #if UNITY_EDITOR

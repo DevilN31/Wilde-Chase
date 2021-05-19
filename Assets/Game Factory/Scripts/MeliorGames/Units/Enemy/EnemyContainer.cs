@@ -16,5 +16,10 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       EnemyPlayerFollow.SetTarget(followTarget);
       EnemyPlayerFollow.RunAwayPoint = runAwayWaypoint;
     }
+
+    public void DestroyRider()
+    {
+      Destroy(EnemyShoot.gameObject);
+    }
   }
 }

@@ -67,11 +67,11 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
 
     private IEnumerator InitialDelay()
     {
-      float randomDelay = Random.Range(0f, 5f);
+      float randomDelay = Random.Range(0f, 1f);
       yield return new WaitForSeconds(randomDelay);
       
       View.SetReadyToShoot();
-      lastShot = Time.time + IdleDuration + Random.Range(0f, 5f);
+      lastShot = Time.time + IdleDuration; //+ Random.Range(0f, 2f);
       PickDirection();
       
       ableToShoot = true;

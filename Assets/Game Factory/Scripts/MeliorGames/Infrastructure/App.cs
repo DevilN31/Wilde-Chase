@@ -13,7 +13,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
     public GameFactory GameFactory;
     public GameplayHUD GameplayHUD;
     public SceneLoader SceneLoader;
-    
+
     public PlayerSpawner PlayerSpawner;
     public EnemySpawner EnemySpawner;
 
@@ -21,7 +21,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
 
     public SaveLoadService SaveLoadService;
 
-    
+
     private Level currentLevel;
 
     private void Start()
@@ -34,16 +34,16 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
       GameplayHUD.LoadingCurtain.Show();
       GameplayHUD.LoadingCurtain.Hide();
       LoadProgress();
-      PlayerSpawner.Init(PlayerInitialPoint(), currentLevel.wayPoint);
-      EnemySpawner.Init();
+      PlayerSpawner.Init(GameFactory,PlayerInitialPoint(), currentLevel.wayPoint, LevelContainer);
+      EnemySpawner.Init(GameFactory, LevelContainer);
       GameplayHUD.Init(GameFactory.PlayerContainer.PlayerMain, LevelContainer, SceneLoader);
     }
 
     private GameObject PlayerInitialPoint()
     {
       Debug.Log(SaveLoadService.PlayerProgress.LevelID);
-      
-      currentLevel =  LevelContainer.Levels.Find(
+
+      currentLevel = LevelContainer.Levels.Find(
         level => level.Index == SaveLoadService.PlayerProgress.LevelID);
 
       return currentLevel.InitialPoint.gameObject;

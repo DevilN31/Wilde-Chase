@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using Game_Factory.Scripts.MeliorGames.Projectiles;
 using Game_Factory.Scripts.MeliorGames.TimeService;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public PlayerView View;
 
     public TrajectoryRenderer TrajectoryRenderer;
-    public Camera MainCamera;
+    private Camera mainCamera;
 
     public float FireRate = 0.5f;
     public float MaxSpeed = 16f;
@@ -33,12 +34,25 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private bool buttonDowned;
 
+    private LevelContainer levelContainer;
+    private List<Projectile> thrownProjectiles = new List<Projectile>();
+
     private void Awake()
     {
       lastShotTime = Time.time + 1.5f;
     }
-    
-    
+
+    public void Init(LevelContainer _levelContainer, Camera camera)
+    {
+      levelContainer = _levelContainer;
+      mainCamera = camera;
+      
+      foreach (Level level in levelContainer.Levels)
+      {
+        level.Finished += DestroyProjectiles;
+      }
+    }
+
     private void Update()
     {
       if (EventSystem.current.IsPointerOverGameObject() ||
@@ -50,7 +64,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         if (Input.GetMouseButtonDown(0))
         {
           buttonDowned = true;
-          Debug.Log("Mouse down");
+          //Debug.Log("Mouse down");
           TimeControl.Instance.SlowDown();
           View.SwitchAiming(true);
         }
@@ -65,7 +79,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
         if (Input.GetMouseButtonUp(0) && buttonDowned)
         {
-          Debug.Log("Mouse up");
+          //Debug.Log("Mouse up");
           buttonDowned = false;
           TimeControl.Instance.SpeedUp();
           TrajectoryRenderer.HideTrajectory();
@@ -87,15 +101,10 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private void ShotStart(float v)
     {
-      StartCoroutine(Shot(v));
-    }
-
-    private IEnumerator Shot(float v)
-    {
-      yield return new WaitForSeconds(0.00f);
       Projectile newBullet = Instantiate(PickProjectile(), SpawnTransform.position, Quaternion.identity);
       newBullet.Thrown = true;
-      newBullet.GetComponent<Rigidbody>().velocity = SpawnTransform.forward * v; //AddForce(SpawnTransform.forward * v, ForceMode.VelocityChange);
+      newBullet.GetComponent<Rigidbody>().velocity = SpawnTransform.forward * v;
+      thrownProjectiles.Add(newBullet);//AddForce(SpawnTransform.forward * v, ForceMode.VelocityChange);
       //PlayerController.ThrowProps(SpawnTransform.forward * v, SpawnTransform.position);
     }
 
@@ -114,7 +123,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       float v2 = (gravity * x * x) / (2 * (y - Mathf.Tan(angleInRadians) * x) * Mathf.Pow(Mathf.Cos(angleInRadians), 2));
       speed = Mathf.Sqrt(Mathf.Abs(v2));
       speed = Mathf.Clamp(speed, 0f, MaxSpeed);
-      Debug.Log(speed / MaxSpeed);
+      //Debug.Log(speed / MaxSpeed);
       View.ControlThrow(speed / MaxSpeed);
 
       TrajectoryRenderer.ShowTrajectory(transform.position, SpawnTransform.forward * speed);
@@ -123,7 +132,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     private void PickTarget()
     {
       var groundPlane = new Plane(Vector3.up, Vector3.zero);
-      Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+      Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
       if (groundPlane.Raycast(ray, out float position))
       {
@@ -143,6 +152,15 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public void SetReload(float reloadTime)
     {
       lastShotTime = Time.time + reloadTime;
+    }
+
+    private void DestroyProjectiles(Level level)
+    {
+      for (int i = thrownProjectiles.Count - 1; i >= 0; i--)
+      {
+        Destroy(thrownProjectiles[i].gameObject);
+        thrownProjectiles.Remove(thrownProjectiles[i]);
+      }
     }
   }
 }

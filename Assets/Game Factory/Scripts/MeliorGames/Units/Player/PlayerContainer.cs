@@ -1,4 +1,5 @@
 ﻿using System;
+using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using MalbersAnimations.Controller;
 using UnityEngine;
 
@@ -14,10 +15,10 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public Transform PlayerTransform;
     public Transform WagonTransform;
 
-    public void Init(MWayPoint wayPoint, Camera camera)
+    public void Init(MWayPoint wayPoint, Camera camera, LevelContainer _levelContainer)
     {
       PlayerHorseAI.SetTarget(wayPoint.transform, true);
-      PlayerShoot.MainCamera = camera;
+      PlayerShoot.Init(_levelContainer, camera);
     }
   }
 }

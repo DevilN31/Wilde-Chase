@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Game_Factory.Scripts.MeliorGames.CameraControl;
 using Game_Factory.Scripts.MeliorGames.Infrastructure.AssetManagement;
 using Game_Factory.Scripts.MeliorGames.LevelManagement;
+using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using Game_Factory.Scripts.MeliorGames.Units.Enemy;
 using Game_Factory.Scripts.MeliorGames.Units.Player;
 using MalbersAnimations.Controller;
@@ -26,7 +27,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
         {
             _assetProvider = new AssetProvider();
         }
-        
+
         public void CreatePlayer(GameObject at)
         {
             PlayerContainer = 

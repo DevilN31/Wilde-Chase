@@ -26,11 +26,11 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
 
     private void OnTriggerExit(Collider other)
     {
-      if (triggerEntered)
+      /*if (triggerEntered)
       {
         triggerEntered = false;
         TriggerExit?.Invoke(other);
-      }
+      }*/
     }
 
     private void OnDrawGizmos()
