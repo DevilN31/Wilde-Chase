@@ -41,7 +41,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
         loadingCurtain.Show();
         PlayerPrefs.DeleteAll();
         Close();
-        sceneLoader.Load("Test", loadingCurtain.Hide);
+        sceneLoader.Load("Level", loadingCurtain.Hide);
       });
       
       QuitButton.onClick.AddListener(Application.Quit);

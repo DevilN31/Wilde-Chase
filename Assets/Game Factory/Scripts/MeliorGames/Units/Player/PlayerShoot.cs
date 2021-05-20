@@ -48,7 +48,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     {
       levelContainer = _levelContainer;
       mainCamera = camera;
-      
+
       foreach (Level level in levelContainer.Levels)
       {
         level.Finished += DestroyProjectiles;
@@ -66,7 +66,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         if (Input.GetMouseButtonDown(0))
         {
           buttonDowned = true;
-          //Debug.Log("Mouse down");
+
           TimeControl.Instance.SlowDown();
           View.SwitchAiming(true);
         }
@@ -81,7 +81,6 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
         if (Input.GetMouseButtonUp(0) && buttonDowned)
         {
-          //Debug.Log("Mouse up");
           buttonDowned = false;
           TimeControl.Instance.SpeedUp();
           TrajectoryRenderer.HideTrajectory();
@@ -106,8 +105,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       Projectile newBullet = Instantiate(PickProjectile(), SpawnTransform.position, Quaternion.identity);
       newBullet.Thrown = true;
       newBullet.GetComponent<Rigidbody>().velocity = SpawnTransform.forward * v;
-      thrownProjectiles.Add(newBullet);//AddForce(SpawnTransform.forward * v, ForceMode.VelocityChange);
-      //PlayerController.ThrowProps(SpawnTransform.forward * v, SpawnTransform.position);
+      thrownProjectiles.Add(newBullet);
     }
 
     private void CalculateVelocity()
@@ -125,7 +123,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       float v2 = (gravity * x * x) / (2 * (y - Mathf.Tan(angleInRadians) * x) * Mathf.Pow(Mathf.Cos(angleInRadians), 2));
       speed = Mathf.Sqrt(Mathf.Abs(v2));
       speed = Mathf.Clamp(speed, 0f, MaxSpeed);
-      //Debug.Log(speed / MaxSpeed);
+
       View.ControlThrow(speed / MaxSpeed);
 
       TrajectoryRenderer.ShowTrajectory(transform.position, SpawnTransform.forward * speed);
@@ -138,17 +136,19 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
       if (IsInputInverted)
       {
-        input.y = Screen.height/2 - input.y;
+        input.y = Screen.height / 2 - input.y;
+        input.y = Mathf.Clamp(input.y, 0f, Screen.height / 2);
         input.x = Screen.width - input.x;
       }
-      //Debug.Log(input);
-      
+
+      Debug.Log(input);
+
       Ray ray = mainCamera.ScreenPointToRay(input);
 
       if (groundPlane.Raycast(ray, out float position))
       {
         Vector3 touchedWorldPosition = ray.GetPoint(position);
-        
+
         TargetPosition = touchedWorldPosition;
       }
     }
