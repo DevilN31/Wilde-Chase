@@ -1,4 +1,5 @@
 ﻿using Game_Factory.Scripts.MeliorGames.Infrastructure;
+using Game_Factory.Scripts.MeliorGames.Infrastructure.Data;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using MalbersAnimations.Controller;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
       levelContainer = _levelContainer;
       SpawnPlayer(spawn);
       gameFactory.PlayerContainer.Init(wayPoint, Camera.main, levelContainer);
+      gameFactory.PlayerContainer.PlayerShoot.IsInputInverted = SaveLoadService.Instance.GameSettings.IsInputInverted;
     }
 
     private void SpawnPlayer(GameObject spawn)

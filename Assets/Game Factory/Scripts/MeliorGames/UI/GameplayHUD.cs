@@ -14,7 +14,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
   public class GameplayHUD : MonoBehaviour
   {
     public TMP_Text LevelNameTxt;
-    public Slider HealthBar;
+    public HPBar HPBar;
     public TMP_Text ReloadingText;
 
     public Button PauseButton;
@@ -24,6 +24,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
     public GameOverPopUp GameOverPopUp;
     public WinPopUp WinPopUp;
     public NextLevelPopUp NextLevelPopUp;
+    public SettingsPopUp SettingsPopUp;
 
     private PlayerMain player;
     private LevelContainer levelContainer;
@@ -35,7 +36,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       levelContainer = _levelContainer;
       sceneLoader = _sceneLoader;
 
-      player.Receiver.DamageReceived += UpdateHealthBar;
+      player.HealthChanged += UpdateHealthBar;
       player.Died += GameOverPopUp.Open;
       UpdateHealthBar();
 
@@ -45,7 +46,9 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       NextLevelPopUp.Init(LoadingCurtain, player, this);
       GameOverPopUp.Init(sceneLoader, LoadingCurtain);
       WinPopUp.Init(sceneLoader, LoadingCurtain);
-      PausePopUp.Init(sceneLoader, LoadingCurtain);
+      SettingsPopUp.Init(player.Shooter);
+      PausePopUp.Init(sceneLoader, LoadingCurtain, SettingsPopUp);
+      
     }
 
     private void Start()
@@ -95,7 +98,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
 
     public void UpdateHealthBar()
     {
-      HealthBar.value = player.Health / player.MaxHealth;
+      HPBar.SetValue(player.Health, player.MaxHealth);
     }
 
     private void UpdateLevelText(Level level)

@@ -14,6 +14,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public Transform ShootTarget;
     public Transform PlayerTransform;
     public Transform WagonTransform;
+    public Transform Cube;
 
     public void Init(MWayPoint wayPoint, Camera camera, LevelContainer _levelContainer)
     {

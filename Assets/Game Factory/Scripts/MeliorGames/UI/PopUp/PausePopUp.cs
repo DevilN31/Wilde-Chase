@@ -10,16 +10,19 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
   public class PausePopUp : GameplayPopUp
   {
     public Button ResumeButton;
+    public Button SettingsButton;
     public Button RestartButton;
     public Button QuitButton;
 
     private SceneLoader sceneLoader;
     private LoadingCurtain loadingCurtain;
+    private SettingsPopUp settingPopUp;
 
-    public void Init(SceneLoader _sceneLoader, LoadingCurtain _loadingCurtain)
+    public void Init(SceneLoader _sceneLoader, LoadingCurtain _loadingCurtain, SettingsPopUp _settingsPopUp)
     {
       sceneLoader = _sceneLoader;
       loadingCurtain = _loadingCurtain;
+      settingPopUp = _settingsPopUp;
     }
 
     private void Start()
@@ -29,6 +32,8 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
         Close();
         TimeControl.Instance.RunGame();
       });
+      
+      SettingsButton.onClick.AddListener(settingPopUp.Open);
       
       RestartButton.onClick.AddListener(() =>
       {

@@ -28,6 +28,8 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public float AngleInDegrees;
     public bool ReadyToShoot;
 
+    public bool IsInputInverted;
+
     private float speed;
     private readonly float gravity = Physics.gravity.y;
     private float lastShotTime;
@@ -83,7 +85,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
           buttonDowned = false;
           TimeControl.Instance.SpeedUp();
           TrajectoryRenderer.HideTrajectory();
-          ShotStart(speed);
+          Shot(speed);
 
           TargetPosition = Vector3.zero;
           lastShotTime = Time.time;
@@ -99,7 +101,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       return ReadyToShoot;
     }
 
-    private void ShotStart(float v)
+    private void Shot(float v)
     {
       Projectile newBullet = Instantiate(PickProjectile(), SpawnTransform.position, Quaternion.identity);
       newBullet.Thrown = true;
@@ -132,12 +134,21 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     private void PickTarget()
     {
       var groundPlane = new Plane(Vector3.up, Vector3.zero);
-      Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+      var input = Input.mousePosition;
+
+      if (IsInputInverted)
+      {
+        input.y = Screen.height/2 - input.y;
+        input.x = Screen.width - input.x;
+      }
+      //Debug.Log(input);
+      
+      Ray ray = mainCamera.ScreenPointToRay(input);
 
       if (groundPlane.Raycast(ray, out float position))
       {
         Vector3 touchedWorldPosition = ray.GetPoint(position);
-
+        
         TargetPosition = touchedWorldPosition;
       }
     }

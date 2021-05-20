@@ -2,7 +2,7 @@
 using Game_Factory.Scripts.MeliorGames.Projectiles;
 using UnityEngine;
 
-namespace Game_Factory.Scripts.MeliorGames.Units
+namespace Game_Factory.Scripts.MeliorGames.Units.Player
 {
   public class PlayerDamageReceiver : MonoBehaviour
   {

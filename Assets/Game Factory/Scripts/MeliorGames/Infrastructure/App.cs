@@ -34,6 +34,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
       GameplayHUD.LoadingCurtain.Show();
       GameplayHUD.LoadingCurtain.Hide();
       LoadProgress();
+      LoadSettings();
       PlayerSpawner.Init(GameFactory,PlayerInitialPoint(), currentLevel.wayPoint, LevelContainer);
       EnemySpawner.Init(GameFactory, LevelContainer);
       GameplayHUD.Init(GameFactory.PlayerContainer.PlayerMain, LevelContainer, SceneLoader);
@@ -52,6 +53,16 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
     private void LoadProgress()
     {
       SaveLoadService.PlayerProgress = SaveLoadService.LoadProgress() ?? NewGameProgress();
+    }
+
+    private void LoadSettings()
+    {
+      SaveLoadService.GameSettings = SaveLoadService.LoadSettings() ?? NewGameSettings();
+    }
+
+    private GameSettings NewGameSettings()
+    {
+      return new GameSettings();
     }
 
     private PlayerProgress NewGameProgress()
