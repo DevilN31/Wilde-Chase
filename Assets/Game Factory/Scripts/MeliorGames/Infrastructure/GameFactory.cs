@@ -51,9 +51,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
         public void SetCameraFollow()
         {
             CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
-            // cameraFollow.SetTarget(PlayerContainer.PlayerTransform, PlayerContainer.WagonTransform);
-            cameraFollow.SetTarget(PlayerContainer.PlayerTransform, PlayerContainer.WagonTransform);
-            //cameraFollow.CalculateOffset();
+            cameraFollow.SetTarget(PlayerContainer.PlayerTransform);
         }
     }
 }

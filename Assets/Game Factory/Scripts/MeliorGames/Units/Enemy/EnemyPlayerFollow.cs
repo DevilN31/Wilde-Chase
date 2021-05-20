@@ -28,7 +28,6 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       public void SetTarget(Transform target)
       {
         Player = target;
-        //StartCoroutine(SetTargetCoroutine());
       }
 
       public void StartHorse()
@@ -47,7 +46,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       {
         runningAway = true;
         AnimalAI.SetTarget(RunAwayPoint.transform);
-        SpeedUpHorse(5);
+        SpeedUpHorse(2);
       }
       
       public void SpeedUpHorse(float speed)
@@ -85,13 +84,6 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
             SlowDownHorse(1);
           }
         }
-      }
-
-      private IEnumerator SetTargetCoroutine()
-      {
-        yield return new WaitForSeconds(0.0f);
-        AnimalAI.SetTarget(Player.transform, false);
-        AnimalAI.StoppingDistance = 10f;
       }
     }
 }

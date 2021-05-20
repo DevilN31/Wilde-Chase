@@ -5,18 +5,15 @@ namespace Game_Factory.Scripts.MeliorGames.CameraControl
   public class CameraFollow : MonoBehaviour
   {
     public Transform MovementTarget;
-    public Transform RotationTarget;
     public float SmoothTime = 0.3f;
-    public float RotationSpeed;
-    
+
     public Vector3 offset;
     
     private Vector3 velocity;
 
-    public void SetTarget(Transform movementTarget, Transform rotationTarget)
+    public void SetTarget(Transform movementTarget)
     {
       MovementTarget = movementTarget;
-      RotationTarget = rotationTarget;
     }
 
     public void CalculateOffset()
@@ -36,14 +33,6 @@ namespace Game_Factory.Scripts.MeliorGames.CameraControl
 
         transform.position = new Vector3(positionX, positionY, positionZ);
       }
-
-      //Vector3 angle = RotationTarget.rotation.eulerAngles;
-      //angle.y += 180f;
-      //transform.rotation = Quaternion.Euler(angle);
-
-      //transform.position = MovementTarget.position;
-      
-      //transform.LookAt(MovementTarget);
     }
   }
 }
