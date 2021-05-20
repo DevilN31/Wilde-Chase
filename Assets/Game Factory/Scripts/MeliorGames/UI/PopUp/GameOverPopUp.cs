@@ -1,5 +1,6 @@
 ﻿using System;
 using Game_Factory.Scripts.MeliorGames.Infrastructure;
+using Game_Factory.Scripts.MeliorGames.TimeService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,8 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
     {
       RestartButton.onClick.AddListener(() =>
       {
+        TimeControl.Instance.SpeedUp();
+        TimeControl.Instance.RunGame();
         sceneLoader.Load("Level");
       });
     }

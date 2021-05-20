@@ -6,5 +6,6 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure.Data
   public class GameSettings
   {
     public bool IsInputInverted;
+    public float Sensitivity = 1f;
   }
 }

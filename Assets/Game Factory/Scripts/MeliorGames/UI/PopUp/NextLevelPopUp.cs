@@ -25,6 +25,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
     {
       NextLevelButton.onClick.AddListener(() =>
       {
+        TimeControl.Instance.SpeedUp();
         TimeControl.Instance.RunGame();
         loadingCurtain.Show();
         loadingCurtain.Hide();

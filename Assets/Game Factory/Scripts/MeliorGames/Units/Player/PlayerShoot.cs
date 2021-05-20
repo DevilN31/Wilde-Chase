@@ -17,6 +17,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public TrajectoryRenderer TrajectoryRenderer;
     private Camera mainCamera;
 
+    [Range(0.1f, 2f)] public float Sensitivity = 1f;
     public float FireRate = 0.5f;
     public float MaxSpeed = 16f;
 
@@ -133,6 +134,8 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     {
       var groundPlane = new Plane(Vector3.up, Vector3.zero);
       var input = Input.mousePosition;
+
+      input.y *= Sensitivity;
 
       if (IsInputInverted)
       {
