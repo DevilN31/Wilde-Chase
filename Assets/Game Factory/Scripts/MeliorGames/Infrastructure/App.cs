@@ -37,6 +37,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
       LoadSettings();
       PlayerSpawner.Init(GameFactory,PlayerInitialPoint(), currentLevel.wayPoint, LevelContainer);
       EnemySpawner.Init(GameFactory, LevelContainer);
+      LevelContainer.Init(GameFactory.PlayerContainer.PlayerMain);
       GameplayHUD.Init(GameFactory.PlayerContainer.PlayerMain, LevelContainer, SceneLoader);
     }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Game_Factory.Scripts.MeliorGames.Infrastructure;
 using Game_Factory.Scripts.MeliorGames.Infrastructure.Data;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
@@ -15,6 +16,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
   {
     public TMP_Text LevelNameTxt;
     public HPBar HPBar;
+    public LevelProgressBar LevelProgressBar;
     public TMP_Text ReloadingText;
 
     public Button PauseButton;
@@ -37,7 +39,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       sceneLoader = _sceneLoader;
 
       player.HealthChanged += UpdateHealthBar;
-      player.Died += GameOverPopUp.Open;
+      player.Died += OpenGameOverPopUp;
       UpdateHealthBar();
 
       SetLevelNumber(SaveLoadService.Instance.PlayerProgress.LevelID);
@@ -63,6 +65,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
     private void Update()
     {
       CheckPlayerReload();
+      LevelProgressBar.SetValue(levelContainer.DistanceToFinish, levelContainer.currentLevel.Distance);
     }
 
     private void SubscribeOnLevelChange()
@@ -92,7 +95,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       }
       else
       {
-        GameOverPopUp.Open();
+        OpenGameOverPopUp();
       }
     }
 
@@ -114,6 +117,17 @@ namespace Game_Factory.Scripts.MeliorGames.UI
     private void CheckPlayerReload()
     {
       ReloadingText.enabled = !player.Shooter.ReadyToShoot;
+    }
+
+    private void OpenGameOverPopUp()
+    {
+      StartCoroutine(OpenGameOverPopUpCoroutine());
+    }
+
+    private IEnumerator OpenGameOverPopUpCoroutine()
+    {
+      yield return new WaitForSeconds(3f);
+      GameOverPopUp.Open();
     }
   }
 }

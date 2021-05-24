@@ -16,6 +16,8 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
 
     public List<EnemyInitialPoint> EnemyInitialPoints;
 
+    public float Distance;
+
     public MWayPoint wayPoint;
 
     public Action<Level> Finished;
@@ -24,6 +26,8 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
     {
       FinishPoint.TriggerObserver.TriggerEnter += FinishPointTriggerEnter;
       FinishPoint.TriggerObserver.TriggerExit += FinishPointTriggerExit;
+
+      Distance = (FinishPoint.transform.position - InitialPoint.transform.position).magnitude;
     }
     
     public bool IsAllEnemiesDead()

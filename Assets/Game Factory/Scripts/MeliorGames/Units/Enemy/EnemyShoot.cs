@@ -24,7 +24,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     private float lastShot;
     private float angleToTarget;
 
-    private bool ableToShoot;
+    public bool ableToShoot;
 
     private void Start()
     {

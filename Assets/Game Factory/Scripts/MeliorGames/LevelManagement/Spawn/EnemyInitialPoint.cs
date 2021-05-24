@@ -50,6 +50,18 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
       return true;
     }
 
+    public void DistractEnemies()
+    {
+      foreach (EnemyContainer enemy in enemies)
+      {
+        if (!enemy.EnemyController.Dead)
+        {
+          enemy.EnemyShoot.ableToShoot = false;
+          enemy.EnemyPlayerFollow.RunAway();
+        }
+      }
+    }
+
     private void TriggerEnter(Collider obj)
     {
       Debug.Log("Trigger enter");

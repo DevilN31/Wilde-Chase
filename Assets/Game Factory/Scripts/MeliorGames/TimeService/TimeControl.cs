@@ -7,7 +7,7 @@ namespace Game_Factory.Scripts.MeliorGames.TimeService
   {
     public static TimeControl Instance;
     
-    private float slowTimeScale = 0.35f;
+    private float slowTimeScale = 0.5f;
     private float normalTimeScale = 1f;
     private float fixedDeltaTimeFactor = 0.02f;
 
