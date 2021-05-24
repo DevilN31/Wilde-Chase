@@ -1,5 +1,7 @@
 ﻿using System;
+using Game_Factory.Scripts.MeliorGames.TimeService;
 using Game_Factory.Scripts.MeliorGames.Units.Animation;
+using MalbersAnimations.Controller;
 using UnityEngine;
 
 namespace Game_Factory.Scripts.MeliorGames.Units.Player
@@ -12,6 +14,11 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public PlayerDamageReceiver Receiver;
     public PlayerShoot Shooter;
     public PlayerView View;
+    public PlayerRagdoll Ragdoll;
+    
+    public MAnimalAIControl PlayerHorseAI;
+
+    public Animator Animator;
 
     public Action Died;
     public Action HealthChanged;
@@ -49,15 +56,30 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       
       if (Health <= 0)
       {
-        Receiver.Collider.enabled = false;
+        Die();
         Died?.Invoke();
       }
+    }
+
+    public void Die()
+    {
+      Receiver.Collider.enabled = false;
+      
+      PlayerHorseAI.Stop();
+      PlayerHorseAI.enabled = false;
+
+      Shooter.enabled = false;
+      Shooter.TrajectoryRenderer.HideTrajectory();
+      TimeControl.Instance.SpeedUp();
+      
+      transform.parent = null;
+      Animator.enabled = false;
+      Ragdoll.EnableRagdollState();
     }
 
     public void ResetHealth()
     {
       Health = MaxHealth;
-      
     }
   }
 }
