@@ -46,7 +46,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       {
         runningAway = true;
         AnimalAI.SetTarget(RunAwayPoint.transform);
-        SpeedUpHorse(2);
+        SpeedUpHorse(0);
       }
       
       public void SpeedUpHorse(float speed)
