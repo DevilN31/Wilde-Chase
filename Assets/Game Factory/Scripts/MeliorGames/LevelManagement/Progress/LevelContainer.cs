@@ -41,7 +41,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
     private void CalculateDistanceToFinish(Level level)
     {
       DistanceToFinish = (level.FinishPoint.transform.position - player.transform.position).magnitude - 3f;
-      Debug.Log(DistanceToFinish);
+      //Debug.Log(DistanceToFinish);
     }
 
 

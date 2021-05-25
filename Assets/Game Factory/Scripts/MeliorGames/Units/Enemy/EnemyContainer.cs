@@ -8,6 +8,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     public EnemyController EnemyController;
     public EnemyShoot EnemyShoot;
     public EnemyPlayerFollow EnemyPlayerFollow;
+    public EnemyView EnemyView;
     public Aggro Aggro;
 
     public void Init(Transform followTarget, Transform shootTarget, MWayPoint runAwayWaypoint)

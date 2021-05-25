@@ -87,7 +87,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
 
     private Vector3 PickDirection()
     {
-      angleToTarget = Vector3.Angle(Target.forward, BulletSpawn.transform.forward) / 360;
+      angleToTarget = Vector3.Angle(Target.forward, transform.forward) / 360;
       Vector3 targetDirection = Target.position - BulletSpawn.transform.position;
       Debug.DrawRay(BulletSpawn.transform.position, (BulletSpawn.transform.up + targetDirection) * 50f, Color.blue);
 

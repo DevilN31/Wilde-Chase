@@ -58,6 +58,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
         {
           enemy.EnemyShoot.ableToShoot = false;
           enemy.EnemyPlayerFollow.RunAway();
+          enemy.EnemyView.SetIdle();
         }
       }
     }

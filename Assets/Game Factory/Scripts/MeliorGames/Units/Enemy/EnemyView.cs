@@ -15,6 +15,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       private static readonly int Reload = Animator.StringToHash("Reload");
       private static readonly int Direction = Animator.StringToHash("Blend");
       private static readonly int ReadyToShoot = Animator.StringToHash("ReadyToShoot");
+      private static readonly int Idle = Animator.StringToHash("Idle");
 
       private void Awake()
       {
@@ -41,6 +42,11 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
       public void SetReadyToShoot()
       {
         animator.SetTrigger(ReadyToShoot);
+      }
+
+      public void SetIdle()
+      {
+        animator.SetTrigger(Idle);
       }
 
       private void PinPistol()
