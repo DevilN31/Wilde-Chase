@@ -13,6 +13,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
   public class PlayerShoot : MonoBehaviour
   {
     public PlayerView View;
+    public ThrowPreview ThrowPreview;
 
     public TrajectoryRenderer TrajectoryRenderer;
     private Camera mainCamera;
@@ -37,8 +38,13 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private bool buttonDowned;
 
+    private Projectile pickedProjectile;
+
     private LevelContainer levelContainer;
     private List<Projectile> thrownProjectiles = new List<Projectile>();
+
+    public event Action<Projectile> ProjectilePicked;
+    public event Action ProjectileThrown;
 
     private void Awake()
     {
@@ -68,6 +74,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         {
           buttonDowned = true;
 
+          ProjectilePicked?.Invoke(pickedProjectile = PickProjectile());
           TimeControl.Instance.SlowDown();
           View.SwitchAiming(true);
         }
@@ -85,6 +92,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
           buttonDowned = false;
           TimeControl.Instance.SpeedUp();
           TrajectoryRenderer.HideTrajectory();
+          ProjectileThrown?.Invoke();
           Shot(speed);
 
           TargetPosition = Vector3.zero;
@@ -103,7 +111,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private void Shot(float v)
     {
-      Projectile newBullet = Instantiate(PickProjectile(), SpawnTransform.position, Quaternion.identity);
+      Projectile newBullet = Instantiate(pickedProjectile, SpawnTransform.position, Quaternion.identity);
       newBullet.Thrown = true;
       newBullet.GetComponent<Rigidbody>().velocity = SpawnTransform.forward * v;
       thrownProjectiles.Add(newBullet);

@@ -1,5 +1,6 @@
 ﻿using System;
 using Game_Factory.Scripts.MeliorGames.Units;
+using Game_Factory.Scripts.MeliorGames.Units.Player;
 using Microsoft.Win32;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,6 +12,8 @@ namespace Game_Factory.Scripts.MeliorGames.Projectiles
     public Team Team;
     public bool Thrown;
     public GameObject View;
+    
+    public ProjectileType ProjectileType;
 
     public TrailRenderer Trail;
     public Rigidbody Rigidbody;

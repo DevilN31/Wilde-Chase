@@ -67,6 +67,7 @@ MonoBehaviour:
   Team: 0
   Thrown: 0
   View: {fileID: 2623397427238005268}
+  ProjectileType: 5
   Trail: {fileID: 0}
   Rigidbody: {fileID: 77829181207737202}
 --- !u!23 &4771300251571307553
