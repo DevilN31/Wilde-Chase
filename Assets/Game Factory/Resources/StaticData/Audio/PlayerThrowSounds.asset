@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3903c9d02894333ab41cb49476d6b36, type: 3}
+  m_Name: PlayerThrowSounds
+  m_EditorClassIdentifier: 
+  Type: 3
+  Clips:
+  - {fileID: 8300000, guid: 8c3b0fb425459e54ab5b203fe37f7220, type: 3}
+  - {fileID: 8300000, guid: c2d72b26473f91b4cad6006a0ba73a9d, type: 3}
+  - {fileID: 8300000, guid: e250170409a7f0b45b69e339f530ce61, type: 3}
+  - {fileID: 8300000, guid: 5868da7b7d2780e4a903b6d64794040a, type: 3}
+  - {fileID: 8300000, guid: 29443f44982b3e643a65f4bbc8e261ca, type: 3}
+  - {fileID: 8300000, guid: a02081314671da94188abfe8e6b16e06, type: 3}
+  - {fileID: 8300000, guid: 61993076e4dff3247a0fe63470fe84ca, type: 3}
+  - {fileID: 8300000, guid: 23dc6200621ccd042ab4f7ea3f3b2fe1, type: 3}
+  - {fileID: 8300000, guid: b2905cf733bfdd24d8b01c7ab754b493, type: 3}
