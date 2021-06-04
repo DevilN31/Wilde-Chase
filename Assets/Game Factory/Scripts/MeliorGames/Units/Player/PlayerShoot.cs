@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game_Factory.Scripts.MeliorGames.Audio;
+using Game_Factory.Scripts.MeliorGames.Infrastructure.StaticData;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using Game_Factory.Scripts.MeliorGames.Projectiles;
 using Game_Factory.Scripts.MeliorGames.TimeService;
@@ -43,6 +45,8 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     private LevelContainer levelContainer;
     private List<Projectile> thrownProjectiles = new List<Projectile>();
 
+    private bool isFirstAttack = true;
+
     public event Action<Projectile> ProjectilePicked;
     public event Action ProjectileThrown;
 
@@ -74,6 +78,12 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         {
           buttonDowned = true;
 
+          if (isFirstAttack)
+          {
+            isFirstAttack = false;
+            AudioService.Instance.PlaySound(EAudio.CombativeRoar);
+          }
+
           ProjectilePicked?.Invoke(pickedProjectile = PickProjectile());
           TimeControl.Instance.SlowDown();
           View.SwitchAiming(true);
@@ -90,6 +100,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         if (Input.GetMouseButtonUp(0) && buttonDowned)
         {
           buttonDowned = false;
+          AudioService.Instance.PlaySound(EAudio.PlayerThrow);
           TimeControl.Instance.SpeedUp();
           TrajectoryRenderer.HideTrajectory();
           ProjectileThrown?.Invoke();

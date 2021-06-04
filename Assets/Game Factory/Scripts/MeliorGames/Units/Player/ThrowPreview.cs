@@ -37,6 +37,11 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       #endif*/
     }
 
+    public void OnDeath()
+    {
+      OnProjectileThrown();
+    }
+
     private void OnProjectilePicked(Projectile projectile)
     {
       var nextProjectilePreview = ProjectilePreviews.Find(

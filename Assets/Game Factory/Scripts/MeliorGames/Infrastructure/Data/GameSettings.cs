@@ -7,5 +7,8 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure.Data
   {
     public bool IsInputInverted;
     public float Sensitivity = 1f;
+
+    public float MusicVolume = 1f;
+    public float SoundsVolume = 1f;
   }
 }

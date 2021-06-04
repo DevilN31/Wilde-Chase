@@ -18,6 +18,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
       SpawnPlayer(spawn);
       gameFactory.PlayerContainer.Init(wayPoint, Camera.main, levelContainer);
       gameFactory.PlayerContainer.PlayerShoot.IsInputInverted = SaveLoadService.Instance.GameSettings.IsInputInverted;
+      gameFactory.PlayerContainer.PlayerShoot.Sensitivity = SaveLoadService.Instance.GameSettings.Sensitivity;
     }
 
     private void SpawnPlayer(GameObject spawn)

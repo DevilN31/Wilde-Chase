@@ -5502,7 +5502,6 @@ GameObject:
   - component: {fileID: 8831298892302017442}
   - component: {fileID: 8830843028806449810}
   - component: {fileID: 8830775743929368924}
-  - component: {fileID: 8830773389962332020}
   - component: {fileID: 8830944252419886744}
   - component: {fileID: 8830976807122054974}
   - component: {fileID: 8830627501454359338}
@@ -5511,6 +5510,7 @@ GameObject:
   - component: {fileID: 8830934697501994210}
   - component: {fileID: 8870662943287552596}
   - component: {fileID: 8871781168236184463}
+  - component: {fileID: 456517977647822123}
   m_Layer: 20
   m_Name: Polygon Horse HAP4 AI
   m_TagString: Animal
@@ -6973,38 +6973,6 @@ MonoBehaviour:
     OnDegenereate:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &8830773389962332020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8871781168236184460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181eb898d7c8aa441b8df05cec988f7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Active: 1
-  GroundLayer:
-    UseConstant: 1
-    ConstantValue:
-      serializedVersion: 2
-      m_Bits: 1
-    Variable: {fileID: 0}
-  instantiateTracks: 0
-  Tracks: {fileID: 198000013136168986, guid: 70fe502b33f22f9458eee8b3c5b3925b, type: 3}
-  Dust: {fileID: 198000010737321038, guid: f0185de6019ebaa4db45528f37bad8d2, type: 3}
-  StepsVolume: 0
-  DustParticles: 16
-  Scale: {x: 1, y: 1, z: 1}
-  clips:
-  - {fileID: 8300000, guid: 47e7b6f7e3e27e942b73e1d3efa55647, type: 3}
-  - {fileID: 8300000, guid: fd6e32d600847d3448093a32714562eb, type: 3}
-  - {fileID: 8300000, guid: 754d506e013701644ad768a4c1c56209, type: 3}
-  - {fileID: 8300000, guid: 9e1ca9c6ecd54a74cbbcbb87a68b1716, type: 3}
-  - {fileID: 8300000, guid: 2d5d45f6f851e8f4cbcce33a1ee9f8fb, type: 3}
-  trackOffset: 0.0085
 --- !u!114 &8830944252419886744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7785,6 +7753,102 @@ MonoBehaviour:
   Animal: {fileID: 8831298892302017442}
   RunAwayPoint: {fileID: 0}
   RemainingDistance: 0
+--- !u!82 &456517977647822123
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8871781168236184460}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 0
+  Mute: 1
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8871790858049680256
 GameObject:
   m_ObjectHideFlags: 0

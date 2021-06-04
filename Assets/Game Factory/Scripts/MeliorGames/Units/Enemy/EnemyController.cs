@@ -1,4 +1,6 @@
 ﻿using System;
+using Game_Factory.Scripts.MeliorGames.Audio;
+using Game_Factory.Scripts.MeliorGames.Infrastructure.StaticData;
 using MalbersAnimations.HAP;
 using UnityEngine;
 
@@ -25,6 +27,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Enemy
     {
       if (Dead) return;
       
+      AudioService.Instance.PlaySound(EAudio.EnemyHurt);
       Dead = true;
       TakeOffHorse();
       EnemyAggro.enabled = false;

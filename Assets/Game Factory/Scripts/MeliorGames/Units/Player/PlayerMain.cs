@@ -1,4 +1,6 @@
 ﻿using System;
+using Game_Factory.Scripts.MeliorGames.Audio;
+using Game_Factory.Scripts.MeliorGames.Infrastructure.StaticData;
 using Game_Factory.Scripts.MeliorGames.TimeService;
 using Game_Factory.Scripts.MeliorGames.Units.Animation;
 using MalbersAnimations.Controller;
@@ -15,6 +17,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     public PlayerShoot Shooter;
     public PlayerView View;
     public PlayerRagdoll Ragdoll;
+    public ThrowPreview ThrowPreview;
     
     public MAnimalAIControl PlayerHorseAI;
 
@@ -58,6 +61,12 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       {
         Die();
         Died?.Invoke();
+        
+        AudioService.Instance.PlaySound(EAudio.PlayerDeath);
+      }
+      else
+      {
+        AudioService.Instance.PlaySound(EAudio.PlayerHurt);
       }
     }
 
@@ -75,6 +84,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       transform.parent = null;
       Animator.enabled = false;
       Ragdoll.EnableRagdollState();
+      ThrowPreview.OnDeath();
     }
 
     public void ResetHealth()

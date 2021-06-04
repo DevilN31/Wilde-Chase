@@ -1,4 +1,5 @@
 ﻿using System;
+using Game_Factory.Scripts.MeliorGames.Audio;
 using Game_Factory.Scripts.MeliorGames.Infrastructure.Data;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn;
@@ -35,6 +36,7 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
       GameplayHUD.LoadingCurtain.Hide();
       LoadProgress();
       LoadSettings();
+      AudioService.Instance.Init();
       PlayerSpawner.Init(GameFactory,PlayerInitialPoint(), currentLevel.wayPoint, LevelContainer);
       EnemySpawner.Init(GameFactory, LevelContainer);
       LevelContainer.Init(GameFactory.PlayerContainer.PlayerMain);
