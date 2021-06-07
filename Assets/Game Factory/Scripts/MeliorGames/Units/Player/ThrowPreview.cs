@@ -25,16 +25,16 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
     {
       if (projectileIsPicked)
       {
-        pickedProjectilePreview.transform.eulerAngles += Vector3.up * 2;
+        //pickedProjectilePreview.transform.eulerAngles += Vector3.up * 2;
         //pickedProjectilePreview.gameObject.SetActive(true);
       }
 
-      /*#if UNITY_EDITOR
+      #if UNITY_EDITOR
       if (Input.GetKeyDown(KeyCode.Escape))
       {
         UnityEditor.EditorApplication.isPaused = !UnityEditor.EditorApplication.isPaused;
       }
-      #endif*/
+      #endif
     }
 
     public void OnDeath()

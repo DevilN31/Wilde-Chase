@@ -130,7 +130,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
 
     private void CalculateVelocity()
     {
-      Vector3 fromTo = TargetPosition - transform.position;
+      Vector3 fromTo = TargetPosition - SpawnTransform.position;
       Vector3 fromToXZ = new Vector3(fromTo.x, 0f, fromTo.z);
 
       transform.rotation = Quaternion.LookRotation(fromToXZ, Vector3.up);
@@ -145,8 +145,10 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
       speed = Mathf.Clamp(speed, 0f, MaxSpeed);
 
       View.ControlThrow(speed / MaxSpeed);
+      
+      Debug.DrawRay(transform.position, SpawnTransform.forward * speed, Color.red);
 
-      TrajectoryRenderer.ShowTrajectory(transform.position, SpawnTransform.forward * speed);
+      TrajectoryRenderer.ShowTrajectory(SpawnTransform.position, SpawnTransform.forward * speed);
     }
 
     private void PickTarget()
