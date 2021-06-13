@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3903c9d02894333ab41cb49476d6b36, type: 3}
+  m_Name: EnemyHurtSounds
+  m_EditorClassIdentifier: 
+  Type: 1
+  Clips:
+  - {fileID: 8300000, guid: 7d18b6b5e62bb0c47a3a3a634b9acbe4, type: 3}
+  - {fileID: 8300000, guid: c65e339aa918f7542a62fa1d41d2206a, type: 3}
+  - {fileID: 8300000, guid: 54f7975e156b4cd4eae373873ecf06fb, type: 3}
+  - {fileID: 8300000, guid: 07d03a38289415b488e66268ac996709, type: 3}
+  - {fileID: 8300000, guid: 11ebfcd17b31b584eba9e01b1e1e2ba2, type: 3}
+  - {fileID: 8300000, guid: a720d8631eb295f46bb3cc566870e84f, type: 3}
+  - {fileID: 8300000, guid: 9455c8a49cbdf3f4ea031e6d90e07f3f, type: 3}
+  - {fileID: 8300000, guid: 28813039eaaf0ba4f8cf766af8688ee0, type: 3}
+  - {fileID: 8300000, guid: f9bf00c3a917fcf41b0606f89fb6291a, type: 3}
+  - {fileID: 8300000, guid: e1885ab46f3d555438afd929457c07b0, type: 3}
+  - {fileID: 8300000, guid: dbb0f1fbceaa00f49b73c5d373aeaf24, type: 3}
+  - {fileID: 8300000, guid: 7bc49d98ec6d41547b22c86b9f9db6c1, type: 3}

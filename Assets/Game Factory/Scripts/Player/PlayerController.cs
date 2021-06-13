@@ -115,14 +115,14 @@ public class PlayerController : MonoBehaviour
         else
             col.height = 1.6f;
 
-        if (playerWagonPosition != null) // ONLY FOR TESTING!!!
+        //if (playerWagonPosition != null) // ONLY FOR TESTING!!!
         {
             transform.parent = playerWagonPosition;
 
             transform.position = transform.parent.position;
 
-            if(isCrouching)
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, transform.parent.eulerAngles, 0.1f);          
+            //if(isCrouching)
+            //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, transform.parent.eulerAngles, 0.1f);          
         }
 
     }
@@ -130,47 +130,47 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if (UiManager.instance.TouchField != null)
-        {
-            if (UiManager.instance.TouchField.Pressed) // Checkes if player touched the screen -> starts rotation control
-            {
-                isCrouching = false;
-                dragDir = UiManager.instance.TouchField.TouchDir;
-                yaw += dragDir.x * rotationSpeed * Time.fixedDeltaTime;
-                yaw = Mathf.Clamp(yaw, -45, 45);
-
-                forceApplied = (int)(UiManager.instance.TouchField.TouchDist * Time.fixedDeltaTime);
-
-                Time.timeScale = 0.5f; // Slows time while aiming
-                anim.speed = 2f;
-                isAiming = true;
-                anim.SetBool("isAiming", true);
-
-                Vector3 RotateTo = transform.localEulerAngles;
-                if (slingshotControl)
-                    RotateTo.y = -yaw;
-                else
-                    RotateTo.y = yaw;
-
-                transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles,RotateTo,1);
-
-                forceApllied = transform.forward * forceApplied + transform.up * 2;
-
-            }
-            else if (isAiming && !UiManager.instance.TouchField.Pressed) // resets variables if not aiming 
-            {
-                Time.timeScale = 1;
-                anim.speed = 1f;
-                isAiming = false;
-                yaw = 0;
-                anim.SetBool("isAiming", false);
-                anim.SetTrigger("Throw");
-            }
-        }
+        // if (UiManager.instance.TouchField != null)
+        // {
+        //     if (UiManager.instance.TouchField.Pressed) // Checkes if player touched the screen -> starts rotation control
+        //     {
+        //         isCrouching = false;
+        //         dragDir = UiManager.instance.TouchField.TouchDir;
+        //         yaw += dragDir.x * rotationSpeed * Time.fixedDeltaTime;
+        //         yaw = Mathf.Clamp(yaw, -45, 45);
+        //
+        //         forceApplied = (int)(UiManager.instance.TouchField.TouchDist * Time.fixedDeltaTime);
+        //
+        //         Time.timeScale = 0.5f; // Slows time while aiming
+        //         anim.speed = 2f;
+        //         isAiming = true;
+        //         anim.SetBool("isAiming", true);
+        //
+        //         Vector3 RotateTo = transform.localEulerAngles;
+        //         if (slingshotControl)
+        //             RotateTo.y = -yaw;
+        //         else
+        //             RotateTo.y = yaw;
+        //
+        //         transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles,RotateTo,1);
+        //
+        //         forceApllied = transform.forward * forceApplied + transform.up * 2;
+        //
+        //     }
+        //     else if (isAiming && !UiManager.instance.TouchField.Pressed) // resets variables if not aiming 
+        //     {
+        //         Time.timeScale = 1;
+        //         anim.speed = 1f;
+        //         isAiming = false;
+        //         yaw = 0;
+        //         anim.SetBool("isAiming", false);
+        //         anim.SetTrigger("Throw");
+        //     }
+        // }
         
     }
 
-    void LateUpdate()
+    /*void LateUpdate()
     {
         if (isAiming)
         {
@@ -180,16 +180,18 @@ public class PlayerController : MonoBehaviour
             //because drawDebugOnPredict is set to true
             tp.Predict3D(hand.position, transform.forward * forceApplied, Physics.gravity);
         }
-    }
+    }*/
 
-        public void ThrowProps() // Player attack (called from animation)
+        public void ThrowProps(Vector3 force, Vector3 position) // Player attack (called from animation)
     {
         //int randomProp = SelectPropIndex();
         //throwablePool[randomProp].gameObject.SetActive(true);
         //throwablePool[randomProp].transform.position = hand.position;
         //throwablePool[randomProp].transform.rotation = transform.rotation;
         //throwablePool[randomProp].ThrowMe(forceApllied);
-        throwablePool[selectedProp].ThrowMe(forceApllied);
+        //throwablePool[selectedProp].ThrowMe(forceApllied);
+        SelectPropIndex();
+        throwablePool[selectedProp].ThrowMe(force, position);
         selectedProp = -1;
         isCrouching = true;
     }
@@ -231,12 +233,12 @@ public class PlayerController : MonoBehaviour
 
     void InstantiateProps() // Instantiates all the props from the throwableProps list
     {
-        foreach(ThrowingProp t in throwableProps)
+        /*foreach(ThrowingProp t in throwableProps)
         {
             ThrowingProp temp = Instantiate(t, hand.position, transform.rotation);
             throwablePool.Add(temp);
             temp.gameObject.SetActive(false);
-        }
+        }*/
     }
 
     public void TakeDamage(float damage)

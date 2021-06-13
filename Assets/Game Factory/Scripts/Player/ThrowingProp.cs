@@ -55,9 +55,9 @@ public class ThrowingProp : MonoBehaviour
         }
     }
 
-    public void ThrowMe(Vector3 throwForce)
+    public void ThrowMe(Vector3 throwForce, Vector3 startPosition)
     {       
-        transform.position = _parentTransform.position;
+        transform.position = startPosition;
         _parentTransform = null;
         col.isTrigger = false;
         rig.useGravity = true;

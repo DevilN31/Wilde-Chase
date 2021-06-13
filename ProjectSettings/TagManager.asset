@@ -9,6 +9,8 @@ TagManager:
   - Animal
   - Water
   - Stair
+  - Path
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -19,15 +21,15 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Road
   - WayPoint
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Projectile
+  - Wagon
+  - EnemyBullet
+  - Aggro
+  - PlayerAggro
+  - LevelFinish
   - 
   - 
   - Animal

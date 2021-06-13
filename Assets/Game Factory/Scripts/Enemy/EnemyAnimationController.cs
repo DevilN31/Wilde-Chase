@@ -83,8 +83,6 @@ public class EnemyAnimationController : MonoBehaviour
         {
             StartCoroutine(EnemyDeath());
         }
-
-
     }
 
     void AttemptShoot(float shootSpeed)

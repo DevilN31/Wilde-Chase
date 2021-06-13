@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Game Factory/Scenes/MeliorGames/Level.unity
+    guid: 880c81e9618dd644685c8f18a12539dc
   - enabled: 0
     path: Assets/Game Factory/Scenes/Levels/Level 0.unity
     guid: c064d8ad0d262ea45a43ab09bcb30f2d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game Factory/Scenes/Levels/Level 1.unity
     guid: 8b80e73b2ead844498c19707cfe2f8ef
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game Factory/Scenes/Levels/Level 2.unity
     guid: f4c810e1c5b2c7444a62fe4cabf9a738
   m_configObjects: {}

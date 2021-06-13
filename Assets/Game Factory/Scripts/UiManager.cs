@@ -199,12 +199,12 @@ public class UiManager : MonoBehaviour
 
     public void StartFadeOut() // usued to call FadeOut from other scripts
     {
-        StopAllCoroutines();
-        StartCoroutine(FadeOut());
+        //StopAllCoroutines();
+        //StartCoroutine(FadeOut());
     }
     public void StartFadeIn() // usued to call FadeIn from other scripts
     {
-        StartCoroutine(FadeIn());
+        //StartCoroutine(FadeIn());
     }
 
     IEnumerator FadeOut() 
@@ -240,13 +240,13 @@ public class UiManager : MonoBehaviour
         }
         Debug.Log("UI Manager: Reset Level");
 
-        if (isResetLevel)
+        /*if (isResetLevel)
         {
             isResetLevel = false;
             SceneManager.LoadScene(GameManager.instance.CurrentLevelName);
         }
         else
-            SceneManager.LoadScene(GameManager.instance.NextLevel());
+            SceneManager.LoadScene(GameManager.instance.NextLevel());*/
 
     }
 }
