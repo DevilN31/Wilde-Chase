@@ -45,10 +45,11 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
 
     private GameObject PlayerInitialPoint()
     {
-      Debug.Log(SaveLoadService.PlayerProgress.LevelID);
+      //Debug.Log(SaveLoadService.PlayerProgress.LevelID);
 
       currentLevel = LevelContainer.Levels.Find(
         level => level.Index == SaveLoadService.PlayerProgress.LevelID);
+      currentLevel.Started?.Invoke(currentLevel);
 
       return currentLevel.InitialPoint.gameObject;
     }

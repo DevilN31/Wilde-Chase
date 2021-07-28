@@ -21,6 +21,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
     {
       foreach (Level level in Levels)
       {
+        level.Started += OnLevelStarted_Handler;
         level.Finished += OnLevelFinished_Handler;
       }
     }
@@ -60,6 +61,12 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
         }
       }
     }
+    
+    private void OnLevelStarted_Handler(Level level)
+    {
+      Debug.Log($"Started level {level.Index}");
+    }
+    
     private void OnLevelFinished_Handler(Level level)
     {
       SaveProgress(level);
@@ -81,6 +88,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
           SaveLoadService.Instance.PlayerProgress.LevelID = level.Index + 1;
           SaveLoadService.Instance.SaveProgress();
           currentLevel = Levels.Find(current => current.Index == level.Index + 1);
+          //currentLevel.Started?.Invoke(currentLevel);
         }
       }
       else

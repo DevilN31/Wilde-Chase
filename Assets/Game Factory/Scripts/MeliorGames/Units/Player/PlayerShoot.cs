@@ -165,7 +165,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units.Player
         input.x = Screen.width - input.x;
       }
 
-      Debug.Log(input);
+      //Debug.Log(input);
 
       Ray ray = mainCamera.ScreenPointToRay(input);
 

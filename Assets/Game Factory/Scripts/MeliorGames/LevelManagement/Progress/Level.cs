@@ -20,6 +20,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
 
     public MWayPoint wayPoint;
 
+    public Action<Level> Started;
     public Action<Level> Finished;
 
     private void Start()

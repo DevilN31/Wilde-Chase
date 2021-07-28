@@ -1,4 +1,5 @@
 ﻿using Game_Factory.Scripts.MeliorGames.Infrastructure;
+using Game_Factory.Scripts.MeliorGames.LevelManagement.Progress;
 using Game_Factory.Scripts.MeliorGames.TimeService;
 using Game_Factory.Scripts.MeliorGames.Units.Player;
 using UnityEngine;
@@ -13,12 +14,14 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
     private LoadingCurtain loadingCurtain;
     private PlayerMain player;
     private GameplayHUD HUD;
+    private LevelContainer levelContainer;
 
-    public void Init(LoadingCurtain _loadingCurtain, PlayerMain _player, GameplayHUD _HUD)
+    public void Init(LoadingCurtain _loadingCurtain, PlayerMain _player, GameplayHUD _HUD, LevelContainer _levelContainer)
     {
       loadingCurtain = _loadingCurtain;
       player = _player;
       HUD = _HUD;
+      levelContainer = _levelContainer;
     }
 
     private void Start()
@@ -32,6 +35,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI.PopUp
         player.ResetHealth();
         player.Shooter.SetReload(1.5f);
         HUD.UpdateHealthBar();
+        levelContainer.currentLevel.Started?.Invoke(levelContainer.currentLevel);
         Close();
       });
     }
