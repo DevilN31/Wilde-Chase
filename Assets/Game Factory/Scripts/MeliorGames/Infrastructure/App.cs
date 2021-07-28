@@ -6,6 +6,7 @@ using Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn;
 using Game_Factory.Scripts.MeliorGames.TimeService;
 using Game_Factory.Scripts.MeliorGames.UI;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 namespace Game_Factory.Scripts.MeliorGames.Infrastructure
 {
@@ -30,18 +31,19 @@ namespace Game_Factory.Scripts.MeliorGames.Infrastructure
       Init();
     }
 
-    private void Init()
-    {
-      GameplayHUD.LoadingCurtain.Show();
-      GameplayHUD.LoadingCurtain.Hide();
-      LoadProgress();
-      LoadSettings();
-      AudioService.Instance.Init();
-      PlayerSpawner.Init(GameFactory,PlayerInitialPoint(), currentLevel.wayPoint, LevelContainer);
-      EnemySpawner.Init(GameFactory, LevelContainer);
-      LevelContainer.Init(GameFactory.PlayerContainer.PlayerMain);
-      GameplayHUD.Init(GameFactory.PlayerContainer.PlayerMain, LevelContainer, SceneLoader);
-    }
+        private void Init()
+        {
+            GameplayHUD.LoadingCurtain.Show();
+            GameplayHUD.LoadingCurtain.Hide();
+            LoadProgress();
+            LoadSettings();
+            AudioService.Instance.Init();
+            PlayerSpawner.Init(GameFactory, PlayerInitialPoint(), currentLevel.wayPoint, LevelContainer);
+            EnemySpawner.Init(GameFactory, LevelContainer);
+            LevelContainer.Init(GameFactory.PlayerContainer.PlayerMain);
+            GameplayHUD.Init(GameFactory.PlayerContainer.PlayerMain, LevelContainer, SceneLoader);
+            GameAnalytics.Initialize();
+        }
 
     private GameObject PlayerInitialPoint()
     {
