@@ -45,7 +45,7 @@ namespace Game_Factory.Scripts.MeliorGames.UI
       SetLevelNumber(SaveLoadService.Instance.PlayerProgress.LevelID);
       SubscribeOnLevelChange();
       
-      NextLevelPopUp.Init(LoadingCurtain, player, this);
+      NextLevelPopUp.Init(LoadingCurtain, player, this, levelContainer);
       GameOverPopUp.Init(sceneLoader, LoadingCurtain);
       WinPopUp.Init(sceneLoader, LoadingCurtain);
       SettingsPopUp.Init(player.Shooter);

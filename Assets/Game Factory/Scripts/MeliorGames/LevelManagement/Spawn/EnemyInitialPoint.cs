@@ -65,7 +65,7 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn
 
     private void TriggerEnter(Collider obj)
     {
-      Debug.Log("Trigger enter");
+      //Debug.Log("Trigger enter");
       PlayerAppearance?.Invoke(this);
       StartCoroutine(TriggerCoroutine());
     }

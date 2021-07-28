@@ -25,7 +25,7 @@ namespace Game_Factory.Scripts.MeliorGames.Units
       projectile.Rigidbody.velocity = Vector3.zero;
       projectile.Thrown = false;
       
-      Debug.Log("Damage Received");
+      //Debug.Log("Damage Received");
       DamageReceived?.Invoke();
     }
 

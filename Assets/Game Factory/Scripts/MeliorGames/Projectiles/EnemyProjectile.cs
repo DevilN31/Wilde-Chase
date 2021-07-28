@@ -10,7 +10,7 @@ namespace Game_Factory.Scripts.MeliorGames.Projectiles
 
     private void OnCollisionEnter(Collision other)
     {
-      Debug.Log(other.gameObject.name);
+      //Debug.Log(other.gameObject.name);
      Destroy(gameObject);
     }
   }
