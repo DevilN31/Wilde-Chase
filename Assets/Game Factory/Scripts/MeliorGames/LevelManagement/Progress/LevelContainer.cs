@@ -4,6 +4,7 @@ using Game_Factory.Scripts.MeliorGames.Infrastructure.Data;
 using Game_Factory.Scripts.MeliorGames.LevelManagement.Spawn;
 using Game_Factory.Scripts.MeliorGames.Units.Player;
 using UnityEngine;
+using YsoCorp.GameUtils; // Publisher SDK
 
 namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
 {
@@ -65,11 +66,14 @@ namespace Game_Factory.Scripts.MeliorGames.LevelManagement.Progress
     private void OnLevelStarted_Handler(Level level)
     {
       Debug.Log($"Started level {level.Index}");
+            YCManager.instance.OnGameStarted(level.Index); // Publisher SDK
     }
     
     private void OnLevelFinished_Handler(Level level)
     {
-      SaveProgress(level);
+            Debug.Log($"Finished level {level.Index}");
+            YCManager.instance.OnGameFinished(true); // Publisher SDK
+            SaveProgress(level);
     }
 
     private void SaveProgress(Level level)

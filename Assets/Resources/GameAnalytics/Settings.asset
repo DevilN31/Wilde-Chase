@@ -30,7 +30,7 @@ MonoBehaviour:
   secretKey:
   - cb7940dd1488f8261ee3ec7cdb2e9fc114127933
   Build:
-  - 0.9.6
+  - 0.9.7
   SelectedPlatformOrganization:
   - Slikk Labs Ltd
   SelectedPlatformStudio:

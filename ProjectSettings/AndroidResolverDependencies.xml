@@ -51,12 +51,12 @@
     <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
     <file>Assets/Plugins/Android/com.android.installreferrer.installreferrer-1.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-applinks-11.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-common-11.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-core-11.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-gamingservices-11.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-login-11.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-share-11.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-applinks-11.1.1.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-common-11.1.1.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-core-11.1.1.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-gamingservices-11.1.1.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-login-11.1.1.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-share-11.1.1.aar</file>
     <file>Assets/Plugins/Android/com.google.zxing.core-3.3.3.jar</file>
     <file>Assets/Plugins/Android/com.parse.bolts.bolts-android-1.4.0.jar</file>
     <file>Assets/Plugins/Android/com.parse.bolts.bolts-applinks-1.4.0.jar</file>
